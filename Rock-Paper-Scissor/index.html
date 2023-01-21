@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>ROCK PAPER SCISSOR</h1>
+      <h2 id="result"><br /></h2>
+      <main>
+        <div class="player box">
+          PLAYER
+          <div id="playerScore">Score: 0</div>
+          <div>
+            <button class="tile player-tile" data-type="Rock">
+              <img src="./images/rock.png" data-type="Rock" /> ROCK
+            </button>
+            <button class="tile player-tile" data-type="Paper">
+              <img src="./images/paper.png" data-type="Paper" /> PAPER
+            </button>
+            <button class="tile player-tile" data-type="Scissor">
+              <img src="./images/scissor.png" data-type="Scissor" /> SCISSOR
+            </button>
+          </div>
+        </div>
+
+        <div class="computer box">
+          COMPUTER
+          <div id="computerScore">Score: 0</div>
+          <div>
+            <button class="tile" data-type="Rock">
+              <img src="./images/rock.png" /> ROCK
+            </button>
+            <button class="tile" data-type="Paper">
+              <img src="./images/paper.png" /> PAPER
+            </button>
+            <button class="tile" data-type="Scissor">
+              <img src="./images/scissor.png" /> SCISSOR
+            </button>
+          </div>
+        </div>
+      </main>
+      <button id="newGame" onclick="newGame()">New Game</button>
+    </div>
+  </body>
+</html>
