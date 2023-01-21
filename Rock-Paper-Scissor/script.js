@@ -13,14 +13,37 @@ const computerScore = document.querySelector("#computerScore");
 const computer = document.querySelector(".computer");
 const computerTiles = computer.querySelectorAll(".tile");
 
+const isDraw = () => playerTile === computerTile;
+
+const won = () =>
+  (playerTile === "rock" && computerTile === "scissor") ||
+  (playerTile === "paper" && computerTile === "rock") ||
+  (playerTile === "scissor" && computerTile === "paper");
+
+const lost = () =>
+  (playerTile === "rock" && computerTile === "paper") ||
+  (playerTile === "paper" && computerTile === "scissor") ||
+  (playerTile === "scissor" && computerTile === "rock");
+
+//--------------------------------------------------------------------//
+
+const enableButtons = () => {
+  playerTiles.forEach((tile) => {
+    tile.disabled = false;
+    tile.classList.add("player-tile");
+  });
+};
+
+const disableButtons = () => {
+  playerTiles.forEach((tile) => {
+    tile.disabled = true;
+    tile.classList.remove("player-tile");
+  });
+};
+
 const clearSelections = () => {
   playerTiles.forEach((tile) => tile.classList.remove("selected"));
   computerTiles.forEach((tile) => tile.classList.remove("selected"));
-};
-
-const randomGenerator = () => {
-  let randomNum = Math.floor(Math.random() * 30) + 1;
-  return allTiles[randomNum % 3];
 };
 
 const showSelections = () => {
@@ -44,34 +67,38 @@ const compare = () => {
   }
 };
 
+const newGame = () => {
+  clearSelections();
+  result.innerText = "\n";
+  playerPoints = 0;
+  playerScore.innerText = "Score: 0";
+  computerPoints = 0;
+  computerScore.innerText = "Score: 0";
+  enableButtons();
+};
+
+const stopGame = () => {
+  if (playerPoints === 5) result.innerText = "YOU WON! :)";
+  else result.innerText = "You Lost :(";
+  disableButtons();
+};
+
+//--------------------------------------------------------------------//
+
+const randomGenerator = () => {
+  let randomNum = Math.floor(Math.random() * 30) + 1;
+  return allTiles[randomNum % 3];
+};
+
 const play = (event) => {
   clearSelections();
   playerTile = event.target.dataset.type;
   computerTile = randomGenerator();
   showSelections();
   compare();
+  if (playerPoints === 5 || computerPoints === 5) stopGame();
 };
 
 playerTiles.forEach((tile) => {
   tile.addEventListener("click", play);
 });
-
-function isDraw() {
-  return playerTile === computerTile;
-}
-
-function won() {
-  return (
-    (playerTile === "rock" && computerTile === "scissor") ||
-    (playerTile === "paper" && computerTile === "rock") ||
-    (playerTile === "scissor" && computerTile === "paper")
-  );
-}
-
-function lost() {
-  return (
-    (playerTile === "rock" && computerTile === "paper") ||
-    (playerTile === "paper" && computerTile === "scissor") ||
-    (playerTile === "scissor" && computerTile === "rock")
-  );
-}
