@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 48px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+img {
+  width: 70px;
+  display: block;
+  margin: 6px auto 20px auto;
+}
+
+body>div {
+  background-color: #121212;
+  color: #FFF;
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+
+}
+
+#result {
+  font-size: 35px;
+  margin: 30px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 24px;
+}
+
+.box {
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.box>div {
+  margin: 15px;
+}
+
+.tile {
+  font-size: 16px;
+  color: white;
+  padding: 25px;
+  margin: 8px;
+  background-color: transparent;
+  border-radius: 1px;
+  border: 1px solid white;
+}
