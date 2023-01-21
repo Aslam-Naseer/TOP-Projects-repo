@@ -32,7 +32,7 @@ body>div {
 }
 
 #result {
-  font-size: 35px;
+  font-size: 32px;
   margin: 20px;
 }
 
@@ -40,7 +40,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 24px;
+  gap: 34px;
 }
 
 .box {
@@ -80,13 +80,13 @@ main {
 
 #newGame {
   padding: 15px 35px;
-  margin: 35px 0 -20px;
+  margin: 30px 0 -20px;
   font-size: 18px;
   background-color: transparent;
   color: white;
   border: none;
-  border-radius: 3px;
-  transition: box-shadow ease-in 150ms;
+  border-radius: 30px;
+  transition: box-shadow ease-in 120ms;
 }
 
 #newGame:hover {

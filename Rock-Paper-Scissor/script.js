@@ -1,4 +1,4 @@
-const allTiles = ["rock", "paper", "scissor"];
+const allTiles = ["Rock", "Paper", "Scissor"];
 const result = document.querySelector("#result");
 
 let playerPoints = 0;
@@ -16,14 +16,14 @@ const computerTiles = computer.querySelectorAll(".tile");
 const isDraw = () => playerTile === computerTile;
 
 const won = () =>
-  (playerTile === "rock" && computerTile === "scissor") ||
-  (playerTile === "paper" && computerTile === "rock") ||
-  (playerTile === "scissor" && computerTile === "paper");
+  (playerTile === "Rock" && computerTile === "Scissor") ||
+  (playerTile === "Paper" && computerTile === "Rock") ||
+  (playerTile === "Scissor" && computerTile === "Paper");
 
 const lost = () =>
-  (playerTile === "rock" && computerTile === "paper") ||
-  (playerTile === "paper" && computerTile === "scissor") ||
-  (playerTile === "scissor" && computerTile === "rock");
+  (playerTile === "Rock" && computerTile === "Paper") ||
+  (playerTile === "Paper" && computerTile === "Scissor") ||
+  (playerTile === "Scissor" && computerTile === "Rock");
 
 //--------------------------------------------------------------------//
 
@@ -55,13 +55,14 @@ const showSelections = () => {
 
 const compare = () => {
   if (isDraw()) {
-    result.innerText = "Its a tie!";
+    result.innerText = "It's a Tie!";
   } else if (won()) {
-    result.innerText = playerTile + " >> " + computerTile;
+    result.innerText = "You scored : " + playerTile + " beats " + computerTile;
     playerPoints += 1;
     playerScore.innerText = "Score: " + playerPoints;
   } else if (lost()) {
-    result.innerText = playerTile + " << " + computerTile;
+    result.innerText =
+      "Computer scored : " + computerTile + " beats " + playerTile;
     computerPoints += 1;
     computerScore.innerText = "Score: " + computerPoints;
   }
