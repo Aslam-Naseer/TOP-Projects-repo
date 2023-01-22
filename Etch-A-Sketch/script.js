@@ -1,4 +1,6 @@
 const container = document.querySelector("#container");
+const resolution = document.querySelector("#resolution");
+const resText = document.querySelector("#res-text");
 let gridOrder = 32;
 let tileColor = "#FFFFFF";
 
@@ -23,5 +25,13 @@ const clearTiles = () => {
 const paint = (e) => {
   if (e.buttons === 1) e.target.style.backgroundColor = tileColor;
 };
+
+const getRes = (e) => {
+  gridOrder = e.target.value;
+  resText.innerText = gridOrder + " x " + gridOrder;
+};
+
+resolution.addEventListener("input", getRes);
+resolution.addEventListener("mouseup", createGrid);
 
 createGrid();
