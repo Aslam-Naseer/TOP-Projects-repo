@@ -32,6 +32,6 @@ const getRes = (e) => {
 };
 
 resolution.addEventListener("input", getRes);
-resolution.addEventListener("mouseup", createGrid);
+resolution.addEventListener("change", createGrid);
 
 createGrid();
