@@ -5,6 +5,7 @@ const appButtons = document.querySelectorAll(".buttons>button");
 
 let gridOrder = 32;
 let tileColor = "white";
+let splashMode = [false, 0, 0, 0];
 
 const createGrid = () => {
   container.style.gridTemplateColumns = `repeat(${gridOrder}, 1fr)`;
@@ -24,8 +25,15 @@ const clearTiles = () => {
   tilesList.forEach((tile) => (tile.style.backgroundColor = "inherit"));
 };
 
+const setRandom = () => {
+  for (i = 1; i < 4; i++) splashMode[i] = Math.floor(Math.random() * 256);
+  tileColor = `rgb(${splashMode[1]},${splashMode[2]},${splashMode[3]})`;
+};
+
 const paint = (e) => {
-  if (e.buttons === 1) e.target.style.backgroundColor = tileColor;
+  if (e.buttons !== 1) return;
+  if (splashMode[0]) setRandom();
+  e.target.style.backgroundColor = tileColor;
 };
 
 const getRes = (e) => {
@@ -34,6 +42,7 @@ const getRes = (e) => {
 };
 
 const toggleButtons = (node) => {
+  splashMode[0] = false;
   appButtons.forEach((node) => node.classList.remove("selected"));
   appButtons[node].classList.add("selected");
 };
@@ -41,6 +50,11 @@ const toggleButtons = (node) => {
 const startSketch = () => {
   toggleButtons(0);
   tileColor = "white";
+};
+
+const splash = () => {
+  toggleButtons(1);
+  splashMode[0] = true;
 };
 
 const useEraser = () => {
