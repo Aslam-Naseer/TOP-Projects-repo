@@ -39,7 +39,8 @@ main {
   translate: -50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 20px;
+  justify-content: end;
 }
 
 .buttons>button {
@@ -50,12 +51,17 @@ main {
   color: white;
   border: 2px solid white;
   border-radius: 5px;
-  transition: background-color linear 100ms;
+  transition: all linear 100ms;
   cursor: pointer;
 }
 
 .buttons>button:hover {
-  background-color: #FFFFFF20;
+  opacity: 0.75;
+}
+
+.buttons>.selected {
+  background-color: white;
+  color: black;
 }
 
 #res-text {
