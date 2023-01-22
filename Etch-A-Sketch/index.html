@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <title>Etch a Sketch</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="./script.js"></script>
   </head>
   <body>
     <main>
       <div class="buttons">
         <input id="color-picker" type="color" value="#FFFFFF" />
-        <button class="selected" onclick="startSketch()">Sketch</button>
+        <button onclick="startSketch()">Sketch</button>
         <button onclick="splash()">Splashh</button>
         <button onclick="useEraser()">Erase</button>
         <button onclick="clearTiles()">Clear</button>

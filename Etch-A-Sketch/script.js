@@ -8,6 +8,10 @@ let gridOrder = 32;
 let tileColor = colorPicker.value;
 let splashMode = [false, 0, 0, 0];
 
+const updateColor = () => {
+  return colorPicker.value;
+};
+
 const createGrid = () => {
   container.style.gridTemplateColumns = `repeat(${gridOrder}, 1fr)`;
   container.style.gridTemplateRows = `repeat(${gridOrder}, 1fr)`;
@@ -24,10 +28,6 @@ const createGrid = () => {
 const clearTiles = () => {
   const tilesList = document.querySelectorAll("#container>div");
   tilesList.forEach((tile) => (tile.style.backgroundColor = "inherit"));
-};
-
-const updateColor = () => {
-  return colorPicker.value;
 };
 
 const setRandom = () => {
@@ -72,3 +72,4 @@ resolution.addEventListener("input", getRes);
 resolution.addEventListener("change", createGrid);
 
 createGrid();
+startSketch();
