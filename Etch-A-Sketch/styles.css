@@ -27,11 +27,22 @@ main {
 }
 
 #container {
-  width: 60vh;
-  height: 60vh;
+  width: 70vh;
+  height: 70vh;
   background-color: transparent;
   border: 5px solid yellow;
   display: grid;
+}
+
+.buttons {
+  margin: 30px 0 20px 0;
+  translate: -50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: end;
+  align-items: center;
+
 }
 
 #color-picker {
@@ -39,7 +50,6 @@ main {
   width: 70px;
   border: none;
   background-color: transparent;
-  align-self: center;
 }
 
 #color-picker::-webkit-color-swatch {
@@ -47,14 +57,6 @@ main {
   border-radius: 50%;
   box-shadow: 0 0 5px 2px white;
   cursor: pointer;
-}
-
-.buttons {
-  translate: -50px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: end;
 }
 
 .buttons>button {
