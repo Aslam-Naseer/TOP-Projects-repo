@@ -2,9 +2,10 @@ const container = document.querySelector("#container");
 const resolution = document.querySelector("#resolution");
 const resText = document.querySelector("#res-text");
 const appButtons = document.querySelectorAll(".buttons>button");
+const colorPicker = document.querySelector("#color-picker");
 
 let gridOrder = 32;
-let tileColor = "white";
+let tileColor = colorPicker.value;
 let splashMode = [false, 0, 0, 0];
 
 const createGrid = () => {
@@ -23,6 +24,10 @@ const createGrid = () => {
 const clearTiles = () => {
   const tilesList = document.querySelectorAll("#container>div");
   tilesList.forEach((tile) => (tile.style.backgroundColor = "inherit"));
+};
+
+const updateColor = () => {
+  return colorPicker.value;
 };
 
 const setRandom = () => {
@@ -49,7 +54,7 @@ const toggleButtons = (node) => {
 
 const startSketch = () => {
   toggleButtons(0);
-  tileColor = "white";
+  tileColor = updateColor();
 };
 
 const splash = () => {
@@ -62,6 +67,7 @@ const useEraser = () => {
   tileColor = "transparent";
 };
 
+colorPicker.addEventListener("change", startSketch);
 resolution.addEventListener("input", getRes);
 resolution.addEventListener("change", createGrid);
 
