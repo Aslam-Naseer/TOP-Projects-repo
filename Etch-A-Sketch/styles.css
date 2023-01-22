@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 body {
@@ -33,9 +34,7 @@ main {
   display: grid;
 }
 
-#container>div {
-  border: 1px solid white;
-}
+#container>div {}
 
 .buttons {
   translate: -50px;
