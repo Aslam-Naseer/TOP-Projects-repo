@@ -34,6 +34,7 @@ main {
 #miniOut {
   font-size: 16px;
   color: gray;
+  height: 16px;
 }
 
 main>button {
