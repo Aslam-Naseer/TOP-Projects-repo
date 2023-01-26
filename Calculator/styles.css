@@ -30,6 +30,7 @@ main {
   padding: 10px 20px;
   margin: 8px;
   overflow-wrap: break-word;
+  height: 70px;
 }
 
 #miniOut {

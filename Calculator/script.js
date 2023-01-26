@@ -11,55 +11,49 @@ const acBtn = calculator.querySelector(".all");
 const negBtn = calculator.querySelector(".neg");
 const decimal = calculator.querySelector(".dot");
 
-let input = 0,
+let input1 = 0,
+  input2 = 0,
   result = 0,
-  operation;
+  operation = "+";
 
 const equate = () => {
-  input = parseFloat(output.textContent);
-  if (output.textContent === "0") return;
+  input1 = result;
+  input2 = parseFloat(output.textContent);
   switch (operation) {
     case "+":
-      result += input;
+      result = input1 + input2;
       break;
     case "-":
-      result -= input;
+      result = input1 - input2;
       break;
     case "x":
-      result *= input;
+      result = input1 * input2;
       break;
     case "/":
-      result /= input;
+      result = input1 / input2;
       break;
-    default:
-      result = input;
   }
 };
 
 const numAction = (e) => {
   if (output.textContent === "0") {
-    output.textContent = "";
-  }
-  if (output.textContent.length < 10) {
+    output.textContent = e.target.value;
+  } else if (output.textContent.length < 10) {
     output.textContent += e.target.value;
   }
 };
 
 const oprAction = (e) => {
-  equate();
+  if (output.textContent !== "") equate();
   operation = e.target.value;
-  miniOut.textContent = result + "  " + operation;
-  output.textContent = 0;
-  equalBtn.disabled = false;
+  miniOut.textContent = result + " " + operation;
+  output.textContent = "";
 };
 
-const equalAction = (e) => {
-  const temp = result;
+const equalAction = () => {
   equate();
-  miniOut.textContent = temp + " " + operation + " " + input;
+  miniOut.textContent = input1 + " " + operation + " " + input2;
   output.textContent = result;
-  operation = "";
-  equalBtn.disabled = true;
 };
 
 const clearLast = () => {
@@ -71,8 +65,7 @@ const clearAll = () => {
   result = 0;
   miniOut.textContent = "";
   output.textContent = result;
-  operation = "";
-  equalBtn.disabled = true;
+  operation = "+";
 };
 
 const negate = () => {
