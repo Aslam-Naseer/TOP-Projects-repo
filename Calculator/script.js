@@ -8,6 +8,8 @@ const equalBtn = calculator.querySelector(".equal");
 const zero = calculator.querySelector(".zero");
 const clrBtn = calculator.querySelector(".clr");
 const acBtn = calculator.querySelector(".all");
+const negBtn = calculator.querySelector(".neg");
+const decimal = calculator.querySelector(".dot");
 
 let input = 0,
   result = 0,
@@ -35,9 +37,8 @@ const equate = () => {
 };
 
 const numAction = (e) => {
-  if (zero.disabled) {
+  if (output.textContent === "0") {
     output.textContent = "";
-    zero.disabled = false;
   }
   if (output.textContent.length < 10) {
     output.textContent += e.target.value;
@@ -50,7 +51,6 @@ const oprAction = (e) => {
   miniOut.textContent = result + "  " + operation;
   output.textContent = 0;
   equalBtn.disabled = false;
-  zero.disabled = true;
 };
 
 const equalAction = (e) => {
@@ -60,13 +60,11 @@ const equalAction = (e) => {
   output.textContent = result;
   operation = "";
   equalBtn.disabled = true;
-  zero.disabled = true;
 };
 
 const clearLast = () => {
   let text = output.textContent;
   output.textContent = text.length > 1 ? text.slice(0, text.length - 1) : 0;
-  if (text.length <= 1) zero.disabled = "true";
 };
 
 const clearAll = () => {
@@ -75,7 +73,20 @@ const clearAll = () => {
   output.textContent = result;
   operation = "";
   equalBtn.disabled = true;
-  zero.disabled = true;
+};
+
+const negate = () => {
+  output.textContent = parseFloat(output.textContent) * -1;
+};
+
+const addDecimal = () => {
+  if (output.textContent.includes(".")) return;
+  output.textContent += ".";
+};
+
+const typeZero = () => {
+  if (output.textContent === "0") return;
+  output.textContent += 0;
 };
 
 numButtons.forEach((btn) => btn.addEventListener("click", numAction));
@@ -83,3 +94,6 @@ operators.forEach((btn) => btn.addEventListener("click", oprAction));
 equalBtn.addEventListener("click", equalAction);
 clrBtn.addEventListener("click", clearLast);
 acBtn.addEventListener("click", clearAll);
+negBtn.addEventListener("click", negate);
+decimal.addEventListener("click", addDecimal);
+zero.addEventListener("click", typeZero);
