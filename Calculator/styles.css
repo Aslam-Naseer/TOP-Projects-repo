@@ -19,18 +19,22 @@ main {
   width: 300px;
 }
 
-#output {
+#outBox {
   background-color: #151515;
   border: none;
   border-radius: 12px;
   grid-column: 1/span 4;
   align-self: center;
   text-align: end;
-  font-size: 50px;
+  font-size: 46px;
   padding: 10px 20px;
   margin: 8px;
 }
 
+#miniOut {
+  font-size: 16px;
+  color: gray;
+}
 
 main>button {
   color: white;
