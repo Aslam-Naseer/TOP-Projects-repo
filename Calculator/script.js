@@ -33,6 +33,7 @@ const equate = () => {
       result = input1 / input2;
       break;
   }
+  result = Math.round(result * 1000000) / 1000000;
 };
 
 const numAction = (e) => {
@@ -51,9 +52,11 @@ const oprAction = (e) => {
 };
 
 const equalAction = () => {
+  if (output.textContent === "") return;
   equate();
   miniOut.textContent = input1 + " " + operation + " " + input2;
   output.textContent = result;
+  result = input1;
 };
 
 const clearLast = () => {
