@@ -5,28 +5,30 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  font-family: 'Orbitron', sans-serif;
 }
 
 main {
-  background-color: rebeccapurple;
+  background-color: #b9b9b9;
   border-radius: 15px;
   border: 1px solid white;
   display: grid;
   grid-template: auto repeat(5, 70px) / repeat(4, 70px);
   padding: 15px;
-  gap: 15px;
+  gap: 10px;
 }
 
 #outBox {
-  background-color: #151515;
+  background-color: #3b3b3b;
+  box-shadow: inset 2px 3px 5px 0px rgb(0 0 0 / 70%);
   border: none;
   border-radius: 12px;
   grid-column: 1/span 4;
   align-self: center;
   text-align: end;
-  font-size: 46px;
+  font-size: 40px;
   padding: 10px 20px;
-  margin: 8px;
+  margin: 8px 8px 28px 8px;
   overflow-wrap: break-word;
   min-height: 70px;
 }
@@ -34,26 +36,30 @@ main {
 #miniOut {
   font-size: 16px;
   color: gray;
-  height: 16px;
+  min-height: 16px;
 }
 
 main>button {
   color: white;
   background-color: black;
-  border-radius: 50%;
+  border-radius: 10px;
   border: none;
   font-size: 18px;
+  font-family: 'Orbitron', sans-serif;
+  transition: all ease-in-out 150ms;
 }
 
 main>button:hover {
   translate: 0 -3px;
   cursor: pointer;
-  background-color: #202020;
+  opacity: 0.8;
+}
+
+main>:nth-child(2) {
+  background-color: rgb(144, 0, 0);
 }
 
 main>:last-child {
   grid-column: 3/span 2;
-  border-radius: 80px;
   aspect-ratio: initial;
-
 }

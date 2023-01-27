@@ -38,10 +38,9 @@ const equate = () => {
 
 const numAction = (e) => {
   if (output.textContent === "0") {
-    output.textContent = e.target.value;
-  } else if (output.textContent.length < 10) {
-    output.textContent += e.target.value;
+    output.textContent = "";
   }
+  output.textContent += e.target.value;
 };
 
 const oprAction = (e) => {
