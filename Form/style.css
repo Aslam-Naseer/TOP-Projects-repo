@@ -53,9 +53,48 @@ body {
 main {
   z-index: 2;
   background-color: #121212;
+}
+
+main>.intro {
   font-size: 1.5rem;
   font-weight: 700;
   padding: 100px 100px 0 50px;
+
+}
+
+form {
+  margin: 50px 0;
+  padding: 35px 35px 35px 50px;
+  background-color: #000;
+  align-self: stretch;
+  font-size: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form-element {
+  display: inline-block;
+  margin: 30px 50px 0 0px;
+  font-size: 1rem;
+  color: #777;
+}
+
+.form-element+.form-element {
+  margin-right: 20px;
+}
+
+.form-element>input {
+  padding: 10px;
+  margin-top: 3px;
+  display: block;
+  font-size: 18px;
+  width: 300px;
+  height: 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #111;
+  color: white;
 }
 
 @font-face {
