@@ -151,3 +151,7 @@ input:focus,
 .input-box:focus {
   border: 2px solid blue;
 }
+
+.input-box {
+  border: 2px solid limegreen;
+}
