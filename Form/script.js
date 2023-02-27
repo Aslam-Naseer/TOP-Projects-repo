@@ -1,6 +1,7 @@
 const form = document.querySelector("form");
 const inputs = document.querySelectorAll("input");
 const submitBtn = document.querySelector(".submit-btn");
+const body = document.querySelector("body");
 
 let flag = true;
 
@@ -56,3 +57,5 @@ inputs.forEach((node) =>
     node.target.classList.add("input-box")
   )
 );
+
+window.addEventListener("load", () => (body.style.opacity = "1"));
