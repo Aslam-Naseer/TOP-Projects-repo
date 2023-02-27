@@ -33,7 +33,7 @@ body {
 
 .logo {
   position: absolute;
-  top: 20%;
+  top: 12%;
   left: 0;
   right: 0;
 
@@ -157,4 +157,23 @@ input:focus,
 
 .input-box {
   border: 2px solid limegreen;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .pic {
+    margin: auto;
+  }
+
+  form {
+    align-items: center;
+  }
+
+  form>div {
+    width: 324px;
+    margin: auto;
+  }
 }
