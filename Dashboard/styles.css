@@ -22,3 +22,8 @@ body {
 .main-content {
   border: 1px solid red;
 }
+
+.svg {
+  width: 35px;
+  height: 35px;
+}
