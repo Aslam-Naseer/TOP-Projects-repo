@@ -100,4 +100,54 @@ body {
   gap: 15px;
 }
 
-.main-content {}
+/*----------------------------------------------------------*/
+
+.main-content {
+  background-color: #E2E8F0;
+  font-weight: 500;
+
+  display: grid;
+  grid-template-columns: 1fr 300px;
+}
+
+.main-content>div {
+  border: 1px solid green;
+}
+
+.projects,
+.announcment,
+.trending {
+  font-size: 18px;
+  position: relative;
+  padding: 55px 25px 20px 25px;
+}
+
+.projects>p,
+.announcment>p,
+.trending>p {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+}
+
+.projects {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.cards {
+  background-color: lightblue;
+  bordeR: 2px solid black;
+  height: 200px;
+}
+
+.trending {
+  margin-top: 30px;
+}
+
+.side-card {
+  background-color: lightgreen;
+  bordeR: 2px solid black;
+  height: 400px;
+}
