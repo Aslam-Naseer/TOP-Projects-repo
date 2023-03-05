@@ -216,3 +216,12 @@ img {
   color: #585858;
   overflow: hidden;
 }
+
+.clickable {
+  transition: scale 0.15s;
+  cursor: pointer;
+}
+
+.clickable:hover {
+  scale: 1.05;
+}
