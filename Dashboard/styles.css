@@ -133,13 +133,38 @@ body {
 .projects {
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 
 .cards {
-  background-color: lightblue;
-  bordeR: 2px solid black;
-  height: 200px;
+  border: none;
+  border-radius: 8px;
+  height: 150px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  box-shadow: 2px 2px 3px #0004;
+  background-image: linear-gradient(to right, var(--blue), var(--blue) 2%, white 2%);
+}
+
+.title>p {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #585858;
+}
+
+.svgs {
+  align-self: flex-end;
+}
+
+.svgs>img {
+  width: 25px;
+  margin: 0 5px;
 }
 
 .trending {
