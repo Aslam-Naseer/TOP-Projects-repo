@@ -16,6 +16,11 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+
+img {
+  border-radius: 30px;
+}
+
 .header {
   grid-area: 1/2/2/3;
   box-shadow: 0 5px 7px 0 #0009;
