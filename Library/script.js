@@ -38,8 +38,6 @@ const changeReadStatus = (e) => {
   button.classList.toggle("unread-book");
 };
 
-const removeBook = (e) => {};
-
 const displayBook = (book) => {
   const bookDiv = document.createElement("div");
   const titleDiv = document.createElement("div");
@@ -60,10 +58,10 @@ const displayBook = (book) => {
   readButton.addEventListener("click", changeReadStatus);
 
   removeButton.textContent = "Remove";
+  removeButton.dataset.index = books.indexOf(book);
   removeButton.addEventListener("click", removeBook);
 
   bookDiv.classList.add("book");
-  bookDiv.dataset.index = books.indexOf(book);
   bookDiv.appendChild(titleDiv);
   bookDiv.appendChild(authorDiv);
   bookDiv.appendChild(readButton);
@@ -80,6 +78,11 @@ const displayAllBook = () => {
   }
 
   books.forEach((book) => displayBook(book));
+};
+
+const removeBook = (e) => {
+  books.splice(e.target.dataset.index, 1);
+  displayAllBook();
 };
 
 const addBook = (book) => {
