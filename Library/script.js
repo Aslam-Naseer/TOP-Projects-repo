@@ -2,6 +2,7 @@ const addBtn = document.querySelector(".add-more");
 const overlay = document.querySelector(".overlay");
 const newPanel = document.querySelector(".new-book-panel");
 // const newBookBtn = document.querySelector(".new-book-btn");
+const booksGrid = document.querySelector("#book-grid");
 const newBookPanel = document.querySelector(".new-book-panel");
 const bookTitle = newBookPanel.querySelector(".book-title");
 const bookAuthor = newBookPanel.querySelector(".author");
@@ -26,18 +27,47 @@ const removeOverlay = () => {
 };
 
 const addBook = () => {
-  books.push(new Book(bookTitle.value, bookAuthor.value, isRead.checked));
-  console.log(books);
+  const book = new Book(bookTitle.value, bookAuthor.value, isRead.checked);
+  books.push(book);
+
+  const bookDiv = document.createElement("div");
+  const titleDiv = document.createElement("div");
+  const authorDiv = document.createElement("div");
+  const readButton = document.createElement("button");
+  const removeButton = document.createElement("button");
+
+  titleDiv.textContent = `"${book.title}"`;
+  authorDiv.textContent = `${book.author}`;
+
+  if (book.read) {
+    readButton.classList.add("read-book");
+    readButton.textContent = "Read";
+  } else {
+    readButton.classList.add("unread-book");
+    readButton.textContent = "Not read";
+  }
+
+  removeButton.textContent = "Remove";
+
+  bookDiv.classList.add("book");
+  bookDiv.appendChild(titleDiv);
+  bookDiv.appendChild(authorDiv);
+  bookDiv.appendChild(readButton);
+  bookDiv.appendChild(removeButton);
+
+  booksGrid.appendChild(bookDiv);
 };
 
 const resetPanel = () => {
   bookAuthor.value = "";
   bookTitle.value = "";
+  removeOverlay();
 };
 
 const validate = (event) => {
   event.preventDefault();
   addBook();
+  console.log(books);
   resetPanel();
 };
 
