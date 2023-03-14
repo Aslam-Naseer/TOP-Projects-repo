@@ -26,10 +26,21 @@ const removeOverlay = () => {
   addBtn.classList.remove("add-more-hover");
 };
 
-const addBook = () => {
-  const book = new Book(bookTitle.value, bookAuthor.value, isRead.checked);
-  books.push(book);
+const changeReadStatus = (e) => {
+  const button = e.target;
 
+  if (button.classList.contains("read-book")) {
+    button.textContent = "Not Read";
+  } else {
+    button.textContent = "Read";
+  }
+  button.classList.toggle("read-book");
+  button.classList.toggle("unread-book");
+};
+
+const removeBook = (e) => {};
+
+const displayBook = (book) => {
   const bookDiv = document.createElement("div");
   const titleDiv = document.createElement("div");
   const authorDiv = document.createElement("div");
@@ -46,16 +57,34 @@ const addBook = () => {
     readButton.classList.add("unread-book");
     readButton.textContent = "Not read";
   }
+  readButton.addEventListener("click", changeReadStatus);
 
   removeButton.textContent = "Remove";
+  removeButton.addEventListener("click", removeBook);
 
   bookDiv.classList.add("book");
+  bookDiv.dataset.index = books.indexOf(book);
   bookDiv.appendChild(titleDiv);
   bookDiv.appendChild(authorDiv);
   bookDiv.appendChild(readButton);
   bookDiv.appendChild(removeButton);
 
   booksGrid.appendChild(bookDiv);
+};
+
+const displayAllBook = () => {
+  let first = booksGrid.firstElementChild;
+  while (first) {
+    first.remove();
+    first = booksGrid.firstElementChild;
+  }
+
+  books.forEach((book) => displayBook(book));
+};
+
+const addBook = (book) => {
+  books.push(book);
+  displayAllBook();
 };
 
 const resetPanel = () => {
@@ -66,7 +95,7 @@ const resetPanel = () => {
 
 const validate = (event) => {
   event.preventDefault();
-  addBook();
+  addBook(new Book(bookTitle.value, bookAuthor.value, isRead.checked));
   console.log(books);
   resetPanel();
 };
