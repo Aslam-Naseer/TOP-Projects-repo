@@ -109,21 +109,12 @@ main {
 }
 
 .is-read {
-  appearance: none;
-  border-radius: 0;
   width: 25px;
   height: 25px;
   border-radius: 5px;
-  background-color: #A00;
-  transition: all 200ms;
 }
 
-.is-read:checked {
-  border-radius: 25px;
-  background-color: #0A0;
-}
-
-.new-book {
+.new-book-btn {
   border: none;
   border-radius: 6px;
   align-self: center;
@@ -135,6 +126,6 @@ main {
   cursor: pointer;
 }
 
-.new-book:hover {
+.new-book-btn:hover {
   opacity: 0.85;
 }

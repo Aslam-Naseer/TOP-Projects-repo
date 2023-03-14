@@ -23,15 +23,25 @@
     </main>
     <button class="add-more">+</button>
     <div class="overlay">
-      <div class="new-book-panel">
-        <input type="text" class="form-element book-name" placeholder="Title" />
-        <input type="text" class="form-element author" placeholder="Author" />
+      <form class="new-book-panel">
+        <input
+          type="text"
+          class="form-element book-title"
+          placeholder="Title"
+          required
+        />
+        <input
+          type="text"
+          class="form-element author"
+          placeholder="Author"
+          required
+        />
         <div class="is-read-div">
           Have you read this?
           <input type="checkbox" class="is-read form-element" checked />
         </div>
-        <button class="new-book">Add Book</button>
-      </div>
+        <button class="new-book-btn">Add Book</button>
+      </form>
     </div>
   </body>
 </html>
