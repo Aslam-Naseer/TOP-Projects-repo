@@ -55,7 +55,7 @@ header {
 
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 45px 15px;
   justify-items: center;
   padding: 30px 10%;
@@ -128,15 +128,16 @@ main {
 
 .book {
   height: 300px;
-  width: 250px;
+  width: 350px;
   border: none;
   border-radius: 25px;
   box-shadow: 3px 3px 10px 3px #222;
+  overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 125px auto auto auto;
   align-items: center;
-  justify-content: space-evenly;
+  justify-items: center;
   gap: 8px;
 }
 
@@ -144,6 +145,7 @@ main {
 .book>div:nth-child(1) {
   font-size: 26px;
   font-weight: 700;
+  padding: 30px 20px;
 }
 
 .book>div:nth-child(2) {
