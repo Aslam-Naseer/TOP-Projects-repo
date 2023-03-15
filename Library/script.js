@@ -36,6 +36,8 @@ const changeReadStatus = (e) => {
   }
   button.classList.toggle("read-book");
   button.classList.toggle("unread-book");
+
+  books[button.dataset.index].read = !books[button.dataset.index].read;
 };
 
 const displayBook = (book) => {
@@ -56,6 +58,7 @@ const displayBook = (book) => {
     readButton.textContent = "Not read";
   }
   readButton.addEventListener("click", changeReadStatus);
+  readButton.dataset.index = books.indexOf(book);
 
   removeButton.textContent = "Remove";
   removeButton.dataset.index = books.indexOf(book);
