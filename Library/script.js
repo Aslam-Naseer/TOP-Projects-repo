@@ -1,7 +1,6 @@
 const addBtn = document.querySelector(".add-more");
 const overlay = document.querySelector(".overlay");
 const newPanel = document.querySelector(".new-book-panel");
-// const newBookBtn = document.querySelector(".new-book-btn");
 const booksGrid = document.querySelector("#book-grid");
 const newBookPanel = document.querySelector(".new-book-panel");
 const bookTitle = newBookPanel.querySelector(".book-title");
@@ -108,8 +107,10 @@ const validate = (event) => {
 
 addBtn.addEventListener("click", popup);
 overlay.addEventListener("click", removeOverlay);
-// newBookBtn.addEventListener("click", validate);
 newPanel.addEventListener("submit", validate);
 newPanel.addEventListener("click", (e) => {
   e.stopPropagation();
 });
+
+addBook(new Book("Angels and Demons", "Dan Brown", true));
+addBook(new Book("A Brief history of time", "Stephen Hawkings", false));
