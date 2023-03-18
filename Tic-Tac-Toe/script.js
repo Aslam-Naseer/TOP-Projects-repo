@@ -1,4 +1,4 @@
-// const gameBoard = document.querySelector("#game-board");
+const info = document.querySelector("#info");
 const gameTiles = document.querySelectorAll(".game-tile");
 const restart = document.querySelector("#restart");
 
@@ -6,8 +6,9 @@ function player(token) {
   const name = `Player ${token === "X" ? 1 : 2}`;
 
   const getToken = () => token;
+  const getName = () => name;
 
-  return { name, token, getToken };
+  return { getName, getToken };
 }
 
 const gameGrid = (() => {
@@ -52,13 +53,17 @@ const gameControl = (() => {
   let currentPlayer = player1;
   let turnsPlayed = 0;
 
+  const rewriteInfo = (string) => {
+    info.textContent = string;
+  };
+
   const isGameOver = () => {
     if (gameGrid.isWinner()) {
       gameOver = true;
-      console.log("Victory");
+      rewriteInfo(`${currentPlayer.getName()} wins!`);
     } else if (turnsPlayed >= 9) {
       gameOver = true;
-      console.log("Draw");
+      rewriteInfo("It's Draw");
     }
 
     return gameOver;
@@ -72,8 +77,10 @@ const gameControl = (() => {
     if (gameGrid.isEmptyTile(tileNum)) {
       gameGrid.writeTile(tileNum, currentPlayer.getToken());
       turnsPlayed += 1;
-      if (isGameOver() === false)
+      if (isGameOver() === false) {
         currentPlayer = currentPlayer === player1 ? player2 : player1;
+        rewriteInfo(`${currentPlayer.getName()}'s turn`);
+      }
     }
   };
 
@@ -81,6 +88,8 @@ const gameControl = (() => {
     gameGrid.resetGrid();
     gameOver = false;
     turnsPlayed = 0;
+    currentPlayer = player1;
+    rewriteInfo("Player 1's turn");
   };
 
   return { playGame, restartGame };
