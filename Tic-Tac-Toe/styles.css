@@ -45,6 +45,19 @@ body {
   grid-template: repeat(3, 1fr)/repeat(3, 1fr);
 }
 
+.game-tile {
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  font-weight: 500;
+}
+
+.game-tile:hover {
+  background-color: #fff1;
+  cursor: pointer;
+}
 
 #restart {
   padding: 15px 30px;
