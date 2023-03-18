@@ -76,10 +76,16 @@ const gameControl = (() => {
     isGameOver();
   };
 
-  return { playGame };
+  const restartGame = () => {
+    gameGrid.resetGrid();
+    gameOver = false;
+    turnsPlayed = 0;
+  };
+
+  return { playGame, restartGame };
 })();
 
 gameTiles.forEach((tile) =>
   tile.addEventListener("click", gameControl.playGame)
 );
-restart.addEventListener("click", gameGrid.resetGrid);
+restart.addEventListener("click", gameControl.restartGame);
