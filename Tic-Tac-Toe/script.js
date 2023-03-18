@@ -23,22 +23,57 @@ const gameGrid = (() => {
     });
   };
 
-  return { isEmptyTile, writeTile, resetGrid };
+  const checkTiles = (a, b, c) => {
+    if (gameTiles[a].textContent === "") return false;
+
+    return (
+      gameTiles[a].textContent === gameTiles[b].textContent &&
+      gameTiles[a].textContent === gameTiles[c].textContent
+    );
+  };
+
+  const isWinner = () => {
+    if (checkTiles(0, 1, 2) || checkTiles(3, 4, 5) || checkTiles(6, 7, 8))
+      return true;
+    if (checkTiles(0, 3, 6) || checkTiles(1, 4, 7) || checkTiles(2, 5, 8))
+      return true;
+    if (checkTiles(0, 4, 8) || checkTiles(2, 4, 6)) return true;
+    return false;
+  };
+
+  return { isEmptyTile, writeTile, resetGrid, isWinner };
 })();
 
 const gameControl = (() => {
   const player1 = player("X");
   const player2 = player("O");
 
+  let gameOver = false;
   let currentPlayer = player1;
+  let turnsPlayed = 0;
+
+  const isGameOver = () => {
+    if (gameGrid.isWinner()) {
+      gameOver = true;
+      console.log("Victory");
+    } else if (turnsPlayed >= 9) {
+      gameOver = true;
+      console.log("Draw");
+    }
+  };
 
   const playGame = (e) => {
     const tileNum = e.target.dataset.tile;
+
+    if (gameOver) return;
 
     if (gameGrid.isEmptyTile(tileNum)) {
       gameGrid.writeTile(tileNum, currentPlayer.getToken());
       currentPlayer = currentPlayer === player1 ? player2 : player1;
     }
+
+    turnsPlayed += 1;
+    isGameOver();
   };
 
   return { playGame };
