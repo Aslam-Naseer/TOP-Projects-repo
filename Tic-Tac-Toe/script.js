@@ -2,7 +2,7 @@ const info = document.querySelector("#info");
 const gameTiles = document.querySelectorAll(".game-tile");
 const restart = document.querySelector("#restart");
 
-function player(token, color) {
+const player = (token, color) => {
   const name = `Player ${token === "X" ? 1 : 2}`;
 
   const getToken = () => token;
@@ -10,7 +10,7 @@ function player(token, color) {
   const getColor = () => color;
 
   return { getName, getToken, getColor };
-}
+};
 
 const gameGrid = (() => {
   const isEmptyTile = (tileNum) => gameTiles[tileNum].textContent === "";

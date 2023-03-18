@@ -16,10 +16,11 @@ body {
 .header {
   text-align: center;
   line-height: 150px;
-  border: 1px solid yellow;
+  border-bottom: 1px solid yellow;
   height: 150px;
   font-size: 75px;
   font-weight: 700;
+  color: #ececec
 }
 
 .main {
