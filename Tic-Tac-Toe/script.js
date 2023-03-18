@@ -1,5 +1,6 @@
 // const gameBoard = document.querySelector("#game-board");
 const gameTiles = document.querySelectorAll(".game-tile");
+const restart = document.querySelector("#restart");
 
 function player(token) {
   const name = `Player ${token === "X" ? 1 : 2}`;
@@ -15,7 +16,14 @@ const gameGrid = (() => {
     gameTiles[tileNum].textContent = token;
   };
 
-  return { isEmptyTile, writeTile };
+  const resetGrid = () => {
+    gameTiles.forEach((tile) => {
+      const currTile = tile;
+      currTile.textContent = "";
+    });
+  };
+
+  return { isEmptyTile, writeTile, resetGrid };
 })();
 
 const gameControl = (() => {
@@ -39,3 +47,4 @@ const gameControl = (() => {
 gameTiles.forEach((tile) =>
   tile.addEventListener("click", gameControl.playGame)
 );
+restart.addEventListener("click", gameGrid.resetGrid);
