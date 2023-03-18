@@ -2,19 +2,21 @@ const info = document.querySelector("#info");
 const gameTiles = document.querySelectorAll(".game-tile");
 const restart = document.querySelector("#restart");
 
-function player(token) {
+function player(token, color) {
   const name = `Player ${token === "X" ? 1 : 2}`;
 
   const getToken = () => token;
   const getName = () => name;
+  const getColor = () => color;
 
-  return { getName, getToken };
+  return { getName, getToken, getColor };
 }
 
 const gameGrid = (() => {
   const isEmptyTile = (tileNum) => gameTiles[tileNum].textContent === "";
-  const writeTile = (tileNum, token) => {
-    gameTiles[tileNum].textContent = token;
+  const writeTile = (tileNum, currentPlayer) => {
+    gameTiles[tileNum].textContent = currentPlayer.getToken();
+    gameTiles[tileNum].style.color = currentPlayer.getColor();
   };
 
   const resetGrid = () => {
@@ -46,8 +48,8 @@ const gameGrid = (() => {
 })();
 
 const gameControl = (() => {
-  const player1 = player("X");
-  const player2 = player("O");
+  const player1 = player("X", "red");
+  const player2 = player("O", "blue");
 
   let gameOver = false;
   let currentPlayer = player1;
@@ -75,7 +77,7 @@ const gameControl = (() => {
     if (gameOver) return;
 
     if (gameGrid.isEmptyTile(tileNum)) {
-      gameGrid.writeTile(tileNum, currentPlayer.getToken());
+      gameGrid.writeTile(tileNum, currentPlayer);
       turnsPlayed += 1;
       if (isGameOver() === false) {
         currentPlayer = currentPlayer === player1 ? player2 : player1;
