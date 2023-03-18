@@ -60,6 +60,8 @@ const gameControl = (() => {
       gameOver = true;
       console.log("Draw");
     }
+
+    return gameOver;
   };
 
   const playGame = (e) => {
@@ -69,11 +71,10 @@ const gameControl = (() => {
 
     if (gameGrid.isEmptyTile(tileNum)) {
       gameGrid.writeTile(tileNum, currentPlayer.getToken());
-      currentPlayer = currentPlayer === player1 ? player2 : player1;
+      turnsPlayed += 1;
+      if (isGameOver() === false)
+        currentPlayer = currentPlayer === player1 ? player2 : player1;
     }
-
-    turnsPlayed += 1;
-    isGameOver();
   };
 
   const restartGame = () => {
