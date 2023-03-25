@@ -1,4 +1,5 @@
 import "./styles/style.css";
+import loadHome from "./home";
 
 const content = document.querySelector("#content");
 
@@ -10,6 +11,7 @@ function header() {
   home.innerText = "Home";
   home.addEventListener("click", () => {
     setActiveBtn(home);
+    loadHome();
   });
 
   const menu = document.createElement("button");
@@ -68,3 +70,4 @@ content.appendChild(header());
 content.appendChild(mainDiv());
 content.appendChild(footer());
 setActiveBtn(document.querySelector(".header>button"));
+loadHome();
