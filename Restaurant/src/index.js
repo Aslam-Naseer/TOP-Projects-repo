@@ -19,4 +19,24 @@ function header() {
   return head;
 }
 
+function footer() {
+  const foot = document.createElement("header");
+  foot.classList.add("footer");
+
+  function newDiv(text) {
+    const textDiv = document.createElement("a");
+    textDiv.innerText = text;
+    return textDiv;
+  }
+
+  foot.appendChild(newDiv("Hive icon made by Freepik - www.flaticon.com"));
+  foot.appendChild(newDiv("Bee icons made by Smashicons - www.flaticon.com"));
+  foot.appendChild(
+    newDiv("Background image created by dgim-studio - www.freepik.com")
+  );
+
+  return foot;
+}
+
 content.appendChild(header());
+content.appendChild(footer());
