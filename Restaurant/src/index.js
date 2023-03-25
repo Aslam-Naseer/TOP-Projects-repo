@@ -1,5 +1,6 @@
 import "./styles/style.css";
 import loadHome from "./home";
+import loadMenu from "./menu";
 
 const content = document.querySelector("#content");
 
@@ -18,6 +19,7 @@ function header() {
   menu.innerText = "Menu";
   menu.addEventListener("click", () => {
     setActiveBtn(menu);
+    loadMenu();
   });
 
   const contact = document.createElement("button");
