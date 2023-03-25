@@ -79,6 +79,8 @@ body {
   border: none;
   background-color: transparent;
   font-weight: 700;
+  font-family: 'Potta One', cursive;
+  z-index: 2;
 }
 
 /* Footer ------------- */
@@ -100,6 +102,6 @@ body {
 .bee-image {
   width: 50px;
   position: absolute;
-  top: 70px;
+  top: 50px;
   left: 30%;
 }

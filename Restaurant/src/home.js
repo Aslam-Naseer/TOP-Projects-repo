@@ -17,7 +17,7 @@ function createHome() {
   home.classList.add("home");
 
   const title = document.createElement("div");
-  title.textContent = "Beary's Breakfast Bar";
+  title.textContent = "Beary's Breakfast";
   title.classList.add("title");
 
   const about = createPar("about");
