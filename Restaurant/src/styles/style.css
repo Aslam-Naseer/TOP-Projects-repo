@@ -10,6 +10,8 @@ body {
   font-family: 'Yusei Magic', sans-serif;
 }
 
+/* Header ------------- */
+
 .header {
   background-color: khaki;
 
@@ -39,10 +41,14 @@ body {
   scale: 1.2;
 }
 
+/* Main ------------- */
+
 #main {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: relative;
 }
 
 #main>div {
@@ -75,6 +81,8 @@ body {
   font-weight: 700;
 }
 
+/* Footer ------------- */
+
 .footer {
   background-color: khaki;
 
@@ -85,4 +93,13 @@ body {
 
 .footer>a {
   font-size: 12px;
+}
+
+/* Bee ------------- */
+
+.bee-image {
+  width: 50px;
+  position: absolute;
+  top: 70px;
+  left: 30%;
 }

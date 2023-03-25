@@ -2,6 +2,7 @@ import "./styles/style.css";
 import loadHome from "./home";
 import loadMenu from "./menu";
 import loadContact from "./contact";
+import beeImage from "./assets/bee.svg";
 
 const content = document.querySelector("#content");
 
@@ -14,6 +15,7 @@ function header() {
   home.addEventListener("click", () => {
     setActiveBtn(home);
     loadHome();
+    addBees();
   });
 
   const menu = document.createElement("button");
@@ -21,6 +23,7 @@ function header() {
   menu.addEventListener("click", () => {
     setActiveBtn(menu);
     loadMenu();
+    addBees();
   });
 
   const contact = document.createElement("button");
@@ -28,6 +31,7 @@ function header() {
   contact.addEventListener("click", () => {
     setActiveBtn(contact);
     loadContact();
+    addBees();
   });
 
   head.appendChild(home);
@@ -40,6 +44,7 @@ function header() {
 function mainDiv() {
   const main = document.createElement("div");
   main.setAttribute("id", "main");
+
   return main;
 }
 
@@ -62,6 +67,14 @@ function footer() {
   return foot;
 }
 
+function addBees() {
+  const bee = document.createElement("img");
+  bee.setAttribute("src", beeImage);
+  bee.classList.add("bee-image");
+
+  main.appendChild(bee);
+}
+
 function setActiveBtn(btn) {
   const buttons = content.querySelectorAll(".header>button");
   buttons.forEach((button) => {
@@ -75,3 +88,4 @@ content.appendChild(mainDiv());
 content.appendChild(footer());
 setActiveBtn(document.querySelector(".header>button"));
 loadHome();
+addBees();
