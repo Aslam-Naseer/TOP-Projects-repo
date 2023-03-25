@@ -26,6 +26,12 @@ function foodObject(name, price, description) {
 
 function createMenu() {
   const menu = document.createElement("div");
+  menu.classList.add("menu");
+
+  const title = document.createElement("div");
+  title.classList.add("title");
+  title.textContent = "Menu";
+  menu.appendChild(title);
 
   menu.appendChild(
     foodObject(

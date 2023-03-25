@@ -45,6 +45,18 @@ body {
   align-items: center;
 }
 
+#main>div {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding: 25px 100px 75px 100px;
+  gap: 20px;
+
+  background-color: khaki;
+  margin: 26px auto;
+  border-radius: 24px;
+}
+
 .footer {
   background-color: khaki;
 
