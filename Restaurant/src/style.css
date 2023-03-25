@@ -1,3 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&family=Yusei+Magic&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   background: url(./assets/643.png);
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+.header {
+  background-color: khaki;
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  padding: 22px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.header>button {
+  padding: 8px 24px;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 24px;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 6px;
 }
