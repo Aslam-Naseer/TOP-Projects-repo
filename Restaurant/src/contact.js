@@ -14,9 +14,11 @@ function createContact(name, role, phone, email) {
   div.appendChild(createDiv(role));
   div.appendChild(createDiv(phone));
   div.appendChild(createDiv(email));
+
+  return div;
 }
 
-function createContact() {
+function createContactList() {
   const contact = document.createElement("div");
   contact.classList.add("contact");
 
@@ -56,5 +58,5 @@ function createContact() {
 export default function () {
   const main = document.querySelector("#main");
   main.innerText = "";
-  main.appendChild(createContact());
+  main.appendChild(createContactList());
 }

@@ -1,6 +1,7 @@
 import "./styles/style.css";
 import loadHome from "./home";
 import loadMenu from "./menu";
+import loadContact from "./contact";
 
 const content = document.querySelector("#content");
 
@@ -26,6 +27,7 @@ function header() {
   contact.innerText = "Contact";
   contact.addEventListener("click", () => {
     setActiveBtn(contact);
+    loadContact();
   });
 
   head.appendChild(home);

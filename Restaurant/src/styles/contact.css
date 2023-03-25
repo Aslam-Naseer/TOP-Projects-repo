@@ -1,0 +1,22 @@
+.contact>div {
+  border: 10px solid #c16a08;
+  background-color: #FFC60B;
+  width: 400px;
+  padding: 30px 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact>.title {
+  font-size: 35px;
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+}
+
+.contact>div>div:first-child {
+  font-weight: 700;
+  font-size: 20px;
+}
