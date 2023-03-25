@@ -2,12 +2,21 @@ import "./style.css";
 
 const content = document.querySelector("#content");
 
-function component() {
-  const element = document.createElement("div");
+function header() {
+  const head = document.createElement("header");
+  head.classList.add("header");
 
-  element.textContent = "Hello WebPack";
+  function newButton(text) {
+    const button = document.createElement("button");
+    button.innerText = text;
+    return button;
+  }
 
-  return element;
+  head.appendChild(newButton("Home"));
+  head.appendChild(newButton("Menu"));
+  head.appendChild(newButton("Contact"));
+
+  return head;
 }
 
-document.body.appendChild(component());
+content.appendChild(header());
