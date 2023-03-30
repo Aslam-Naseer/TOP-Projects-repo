@@ -12,8 +12,19 @@ const component = (type, className, text) => {
 };
 
 const loadPage = () => {
-  content.appendChild(component("div", "projects"));
-  content.appendChild(component("div", "todos"));
+  const projectSide = component("div", "projects");
+  const todosSide = component("div", "todos");
+
+  projectSide.appendChild(component("div", "", "Projects"));
+  projectSide.appendChild(component("ul", "projects-list"));
+  projectSide.appendChild(component("button", "", "Add Project"));
+
+  todosSide.appendChild(component("div", "project-title"));
+  todosSide.appendChild(component("ul", "todos-list"));
+  todosSide.appendChild(component("button", "", "Add Task"));
+
+  content.appendChild(projectSide);
+  content.appendChild(todosSide);
 };
 
 export default loadPage;
