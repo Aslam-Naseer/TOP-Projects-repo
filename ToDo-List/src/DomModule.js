@@ -15,3 +15,5 @@ const loadPage = () => {
   content.appendChild(component("div", "projects"));
   content.appendChild(component("div", "todos"));
 };
+
+export default loadPage;

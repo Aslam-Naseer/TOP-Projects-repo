@@ -1,0 +1,26 @@
+:root {
+  --shadeA: #222222;
+  --shadeB: #121212;
+  --text: #FFF;
+  --textLight: #DDD;
+  --theme: #0ff;
+}
+
+#content {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: calc(200px + 10vw) 1fr;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.projects {
+  background-color: var(--shadeA);
+}
+
+.todos {
+  background-color: var(--shadeB);
+}
