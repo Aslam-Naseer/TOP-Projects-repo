@@ -5,8 +5,8 @@ function createTodo(state) {
 function newProjects() {
   const projects = [];
 
-  const addTodo = (title, descr, dueDate, priority = 5) => {
-    const state = { title, descr, dueDate, priority };
+  const addTodo = (title, dueDate, priority = 5) => {
+    const state = { title, dueDate, priority };
     projects.push(createTodo(state));
   };
 
