@@ -4,6 +4,7 @@
   --text: #FFF;
   --textLight: #999;
   --theme: #0ff;
+  --checked: rgb(0, 255, 98);
 }
 
 #content {
@@ -11,12 +12,12 @@
   display: grid;
   grid-template-columns: calc(200px + 10vw) 1fr;
   color: var(--text);
-  font-family: 'Source Sans Pro', sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .projects {
@@ -63,4 +64,45 @@
 .add-btn::before {
   content: "+ ";
   color: var(--theme);
+}
+
+.todos-list,
+.projects-list {
+  list-style-type: none;
+}
+
+.todo-div {
+  margin: 20px;
+  border: 2px solid var(--textLight);
+  border-radius: 5px;
+  display: flex;
+  padding: 10px 20px;
+  gap: 8px;
+  justify-content: space-between;
+  font-size: 24px;
+  font-weight: 300;
+  transition: all 0.35s;
+}
+
+.todo-div:hover {
+  scale: 1.03;
+  box-shadow: 5px 5px 10px 3px #000;
+}
+
+.todo-done {
+  appearance: none;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  translate: 0 2px;
+  border-radius: 20px;
+  border: 1px solid var(--textLight);
+}
+
+.todo-done:checked {
+  background-color: var(--checked);
+}
+
+.todo-date {
+  color-scheme: dark;
 }
