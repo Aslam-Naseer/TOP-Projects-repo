@@ -17,11 +17,11 @@ const loadPage = () => {
 
   projectSide.appendChild(component("div", "", "Projects"));
   projectSide.appendChild(component("ul", "projects-list"));
-  projectSide.appendChild(component("button", "", "Add Project"));
+  projectSide.appendChild(component("button", "add-btn", "Add Project"));
 
   todosSide.appendChild(component("div", "project-title"));
   todosSide.appendChild(component("ul", "todos-list"));
-  todosSide.appendChild(component("button", "", "Add Task"));
+  todosSide.appendChild(component("button", "add-btn", "Add Task"));
 
   content.appendChild(projectSide);
   content.appendChild(todosSide);

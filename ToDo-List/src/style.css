@@ -2,7 +2,7 @@
   --shadeA: #222222;
   --shadeB: #121212;
   --text: #FFF;
-  --textLight: #DDD;
+  --textLight: #999;
   --theme: #0ff;
 }
 
@@ -10,6 +10,8 @@
   height: 100vh;
   display: grid;
   grid-template-columns: calc(200px + 10vw) 1fr;
+  color: var(--text);
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 * {
@@ -19,8 +21,46 @@
 
 .projects {
   background-color: var(--shadeA);
+  display: grid;
+  grid-template-rows: 150px auto 1fr;
+  padding: 20px 50px;
 }
 
 .todos {
   background-color: var(--shadeB);
+  display: grid;
+  grid-template-rows: 100px auto 1fr;
+  padding: 20px 70px;
+}
+
+.projects>div,
+.todos>div {
+  border-bottom: 2px solid var(--textLight);
+  font-size: 34px;
+  align-self: end;
+  padding-bottom: 24px;
+  font-weight: 700;
+}
+
+.add-btn {
+  justify-self: end;
+  align-self: flex-start;
+  background-color: transparent;
+  color: var(--textLight);
+  padding: 12px 18px;
+  font-size: 22px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.add-btn:hover {
+  background-color: #fff1;
+  cursor: pointer;
+}
+
+.add-btn::before {
+  content: "+ ";
+  color: var(--theme);
 }
