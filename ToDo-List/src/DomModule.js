@@ -30,6 +30,18 @@ const displayTodo = (todo) => {
   todos.appendChild(todoDiv);
 };
 
+const activateProject = (e) => {
+  const projectNodes = document.querySelectorAll(".project-div");
+  projectNodes.forEach((node) => node.classList.remove("active-project"));
+  e.target.classList.add("active-project");
+};
+
+const displayProject = (project) => {
+  const projectDiv = component("li", "project-div", `${project.name}`);
+  projectDiv.addEventListener("click", activateProject);
+  projects.appendChild(projectDiv);
+};
+
 const loadPage = () => {
   const projectSide = component("div", "projects");
   const todosSide = component("div", "todos");
@@ -49,5 +61,5 @@ const loadPage = () => {
 loadPage();
 
 const todos = content.querySelector(".todos-list");
-
-export default displayTodo;
+const projects = content.querySelector(".projects-list");
+export default { displayTodo, displayProject };

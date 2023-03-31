@@ -106,3 +106,24 @@
 .todo-date {
   color-scheme: dark;
 }
+
+.project-div {
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  color: var(--textLight);
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.35s;
+}
+
+.project-div:hover {
+  background-color: #333;
+}
+
+.active-project {
+  color: var(--text);
+  background-color: #333;
+}
