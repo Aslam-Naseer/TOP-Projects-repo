@@ -11,6 +11,25 @@ const component = (type, className, text) => {
   return comp;
 };
 
+const displayTodo = (todo) => {
+  const todoDiv = component("li", "todo-div");
+  todoDiv.setAttribute("id", `todo-${todo.title}`);
+
+  const checkBox = component("input", "todo-done");
+  checkBox.setAttribute("type", "checkbox");
+
+  const todoTitle = component("div", "", `${todo.title}`);
+
+  const calander = component("input", "todo-date");
+  calander.setAttribute("type", "date");
+
+  todoDiv.appendChild(checkBox);
+  todoDiv.appendChild(todoTitle);
+  todoDiv.appendChild(calander);
+
+  todos.appendChild(todoDiv);
+};
+
 const loadPage = () => {
   const projectSide = component("div", "projects");
   const todosSide = component("div", "todos");
@@ -27,4 +46,8 @@ const loadPage = () => {
   content.appendChild(todosSide);
 };
 
-export default loadPage;
+loadPage();
+
+const todos = content.querySelector(".todos-list");
+
+export default displayTodo;

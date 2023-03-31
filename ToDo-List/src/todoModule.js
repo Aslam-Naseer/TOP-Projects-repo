@@ -16,9 +16,9 @@ function newProjects() {
     return projects[pos];
   };
 
-  const todoCount = () => projects.length();
+  const todoCount = () => projects.length;
 
-  return { addTodo, getTodo, todoCount };
+  return { projects, addTodo, getTodo, todoCount };
 }
 
 export default newProjects;
