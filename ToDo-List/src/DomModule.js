@@ -84,15 +84,19 @@ const fetchTodoDetails = () => {
 };
 
 const activateProject = (e) => {
-  const projectNodes = document.querySelectorAll(".project-div");
+  const projectNodes = content.querySelectorAll(".project-div");
   projectNodes.forEach((node) => node.classList.remove("active-project"));
+
+  const projectTitle = content.querySelector(".project-title");
+  projectTitle.textContent = e.target.textContent;
+
   e.target.classList.add("active-project");
 };
 
 const displayProject = (project) => {
   const projectDiv = component("li", "project-div", `${project.name}`);
-  projectDiv.addEventListener("click", activateProject);
   projects.appendChild(projectDiv);
+  return projectDiv;
 };
 
 const addProjectComponent = () => {
@@ -180,4 +184,5 @@ export default {
   displayProject,
   fetchProjectName,
   fetchTodoDetails,
+  activateProject,
 };

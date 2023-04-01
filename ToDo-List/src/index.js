@@ -1,6 +1,8 @@
 import newProject from "./todoModule";
 import fun from "./DomModule";
 
+const projectsArray = {};
+
 const prj1 = newProject("Default");
 const prj21 = newProject("Special");
 const prj31 = newProject("someOther");
@@ -14,16 +16,30 @@ fun.displayTodo(prj1.getTodo(0));
 fun.displayTodo(prj1.getTodo(3));
 fun.displayTodo(prj1.getTodo(2));
 
-fun.displayProject(prj1);
-fun.displayProject(prj21);
-fun.displayProject(prj31);
+const displayAllTodos = (e) => {
+  console.log(e.target);
+  const proj = projectsArray[e.target.dataset.name];
+  fun.activateProject(e);
+  for (let i = 0; i < proj.todoCount(); i++) fun.displayTodo(proj.getTodo(i));
+};
 
 const addProject = () => {
   const projName = fun.fetchProjectName();
   if (projName === "") return;
   const proj = newProject(projName);
-  fun.displayProject(proj);
+  initProjects(proj, projName);
 };
+
+const initProjects = (proj, projName) => {
+  projectsArray[projName] = proj;
+  const projNode = fun.displayProject(proj);
+  projNode.dataset.name = projName;
+  projNode.addEventListener("click", displayAllTodos);
+};
+
+initProjects(prj1, "Default");
+initProjects(prj21, "Specl");
+initProjects(prj31, "someone");
 
 const addNewTodo = () => {
   const todoObj = fun.fetchTodoDetails();
@@ -37,3 +53,6 @@ addProjectAdd.addEventListener("click", addProject);
 
 const addTodoAdd = content.querySelector(".new-todo-div .new-add");
 addTodoAdd.addEventListener("click", addNewTodo);
+
+const projects = content.querySelector(".projects-list>li");
+projects.addEventListener("click", displayAllTodos);
