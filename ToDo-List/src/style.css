@@ -178,6 +178,7 @@
 }
 
 .new-todo-div {
+  align-self: start;
   display: none;
   justify-content: space-evenly;
   flex-wrap: wrap;

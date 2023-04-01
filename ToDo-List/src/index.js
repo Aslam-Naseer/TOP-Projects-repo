@@ -38,13 +38,7 @@ const addNewTodo = () => {
 
 const initializePage = () => {
   const prj1 = newProject("Default");
-  const prj21 = newProject("Specl");
-  const prj31 = newProject("someone");
-
   initProjects(prj1, "Default");
-  initProjects(prj21, "Specl");
-  initProjects(prj31, "someone");
-
   content.querySelector(".project-div:first-child").click();
 };
 

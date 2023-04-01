@@ -59,6 +59,8 @@ const loadAddTodo = () => {
 
   addTodoBtn.style.display = "none";
   addTodoDiv.style.display = "flex";
+
+  unloadAddProject();
 };
 
 const unloadAddTodo = () => {
@@ -129,6 +131,8 @@ const loadAddProject = () => {
 
   addProjectBtn.style.display = "none";
   addProjectDiv.style.display = "flex";
+
+  unloadAddTodo();
 };
 
 const unloadAddProject = () => {
