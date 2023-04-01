@@ -144,6 +144,11 @@ const fetchProjectName = () => {
   return name;
 };
 
+const fetchSelectedProject = () => {
+  const projTitle = content.querySelector(".project-title");
+  return projTitle.textContent;
+};
+
 const loadPage = () => {
   const projectSide = component("div", "projects");
   const todosSide = component("div", "todos");
@@ -188,4 +193,5 @@ export default {
   fetchProjectName,
   fetchTodoDetails,
   activateProject,
+  fetchSelectedProject,
 };

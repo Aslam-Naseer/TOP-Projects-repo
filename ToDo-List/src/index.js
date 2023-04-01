@@ -3,21 +3,8 @@ import fun from "./DomModule";
 
 const projectsArray = {};
 
-const prj1 = newProject("Default");
-const prj21 = newProject("Special");
-const prj31 = newProject("someOther");
-
-prj1.addTodo("todo1");
-prj1.addTodo("todo4");
-prj1.addTodo("todofsdfs sdfg d2");
-prj1.addTodo("todo15");
-
-fun.displayTodo(prj1.getTodo(0));
-fun.displayTodo(prj1.getTodo(3));
-fun.displayTodo(prj1.getTodo(2));
-
 const displayAllTodos = (e) => {
-  console.log(e.target);
+  console.log(projectsArray);
   const proj = projectsArray[e.target.dataset.name];
   fun.activateProject(e);
   for (let i = 0; i < proj.todoCount(); i++) fun.displayTodo(proj.getTodo(i));
@@ -37,16 +24,34 @@ const initProjects = (proj, projName) => {
   projNode.addEventListener("click", displayAllTodos);
 };
 
-initProjects(prj1, "Default");
-initProjects(prj21, "Specl");
-initProjects(prj31, "someone");
-
 const addNewTodo = () => {
   const todoObj = fun.fetchTodoDetails();
   if (todoObj.title === "") return;
-  prj1.addTodo(todoObj.title, todoObj.dueDate);
+  const selectedProject = fun.fetchSelectedProject();
+  projectsArray[selectedProject].addTodo(todoObj.title, todoObj.dueDate);
   fun.displayTodo(todoObj);
 };
+
+const initializePage = () => {
+  const prj1 = newProject("Default");
+  const prj21 = newProject("Special");
+  const prj31 = newProject("smthing");
+
+  initProjects(prj1, "Default");
+  initProjects(prj21, "Specl");
+  initProjects(prj31, "someone");
+
+  prj1.addTodo("Todo 1", Date());
+  prj1.addTodo("Todo 166", Date());
+  prj21.addTodo("Todo 12", Date());
+  prj21.addTodo("Todo 142", Date());
+  prj1.addTodo("Todo 12", Date());
+  prj31.addTodo("Todo 3", Date());
+
+  document.querySelector(".project-div:first-child").click();
+};
+
+initializePage();
 
 const addProjectAdd = content.querySelector(".add-project .new-add");
 addProjectAdd.addEventListener("click", addProject);
