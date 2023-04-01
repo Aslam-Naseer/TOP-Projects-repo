@@ -25,14 +25,14 @@
 .projects {
   background-color: var(--shadeA);
   display: grid;
-  grid-template-rows: 150px auto 1fr;
+  grid-template-rows: 110px auto 1fr;
   padding: 20px 50px;
 }
 
 .todos {
   background-color: var(--shadeB);
   display: grid;
-  grid-template-rows: 100px auto 1fr;
+  grid-template-rows: 110px auto 1fr;
   padding: 20px 70px;
 }
 
@@ -83,7 +83,7 @@
   justify-content: space-between;
   font-size: 24px;
   font-weight: 300;
-  transition: all 0.35s;
+  transition: all 0.25s;
 }
 
 .todo-div:hover {
@@ -99,10 +99,11 @@
   translate: 0 2px;
   border-radius: 20px;
   border: 1px solid var(--textLight);
+  transition: background-color 0.25s;
 }
 
-.todo-done:checked {
-  background-color: var(--checked);
+.todo-done:hover {
+  background-color: var(--add);
 }
 
 .todo-date {
