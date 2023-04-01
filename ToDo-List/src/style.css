@@ -2,25 +2,211 @@
   --shadeA: #222222;
   --shadeB: #121212;
   --text: #FFF;
-  --textLight: #DDD;
+  --textLight: #999;
   --theme: #0ff;
+  --checked: rgb(0, 255, 98);
+  --add: #90fe90;
+  --cancel: #ff8686;
 }
 
 #content {
   height: 100vh;
   display: grid;
   grid-template-columns: calc(200px + 10vw) 1fr;
+  color: var(--text);
 }
 
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .projects {
   background-color: var(--shadeA);
+  display: grid;
+  grid-template-rows: 150px auto 1fr;
+  padding: 20px 50px;
 }
 
 .todos {
   background-color: var(--shadeB);
+  display: grid;
+  grid-template-rows: 100px auto 1fr;
+  padding: 20px 70px;
+}
+
+.projects>div:first-child,
+.todos>div:first-child {
+  border-bottom: 2px solid var(--textLight);
+  font-size: 34px;
+  align-self: end;
+  padding-bottom: 24px;
+  font-weight: 700;
+}
+
+.add-btn {
+  justify-self: end;
+  align-self: flex-start;
+  background-color: transparent;
+  color: var(--textLight);
+  padding: 12px 18px;
+  font-size: 22px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.add-btn:hover {
+  background-color: #fff1;
+  cursor: pointer;
+}
+
+.add-btn::before {
+  content: "+ ";
+  color: var(--theme);
+}
+
+.todos-list,
+.projects-list {
+  list-style-type: none;
+}
+
+.todo-div {
+  margin: 20px;
+  border: 2px solid var(--textLight);
+  border-radius: 5px;
+  display: flex;
+  padding: 10px 20px;
+  gap: 8px;
+  justify-content: space-between;
+  font-size: 24px;
+  font-weight: 300;
+  transition: all 0.35s;
+}
+
+.todo-div:hover {
+  scale: 1.03;
+  box-shadow: 5px 5px 10px 3px #000;
+}
+
+.todo-done {
+  appearance: none;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  translate: 0 2px;
+  border-radius: 20px;
+  border: 1px solid var(--textLight);
+}
+
+.todo-done:checked {
+  background-color: var(--checked);
+}
+
+.todo-date {
+  color-scheme: dark;
+}
+
+.project-div {
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  color: var(--textLight);
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.35s;
+}
+
+.project-div:hover {
+  background-color: #333;
+}
+
+.active-project {
+  color: var(--text);
+  background-color: #333;
+}
+
+.add-project {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.new-project-name {
+  background-color: #444;
+  border: 1px solid black;
+  color: var(--text);
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  height: 36px;
+}
+
+.add-project>div {
+  margin: 12px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-add,
+.new-cancel {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.new-add {
+  background-color: var(--add);
+}
+
+.new-cancel {
+  background-color: var(--cancel);
+}
+
+.add-project .new-add,
+.add-project .new-cancel {
+  width: 45%;
+}
+
+.new-todo-div {
+  display: none;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+}
+
+.new-todo-name {
+  background-color: #222;
+  color: var(--text);
+  border: 1px solid var(--textLight);
+  border-radius: 4px;
+  padding: 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+  height: 36px;
+}
+
+.new-todo-date {
+  color-scheme: dark;
+  font-size: 18px;
+  height: 32px;
+  padding: 0 6px;
+}
+
+.new-todo-div>div {}
+
+.new-todo-div .new-add,
+.new-todo-div .new-cancel {
+  margin: 0 6px;
 }

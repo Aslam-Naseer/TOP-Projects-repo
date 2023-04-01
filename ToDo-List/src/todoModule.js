@@ -2,7 +2,7 @@ function createTodo(state) {
   return { ...state };
 }
 
-function newProjects() {
+function newProjects(name) {
   const projects = [];
 
   const addTodo = (title, dueDate, priority = 5) => {
@@ -16,9 +16,9 @@ function newProjects() {
     return projects[pos];
   };
 
-  const todoCount = () => projects.length();
+  const todoCount = () => projects.length;
 
-  return { addTodo, getTodo, todoCount };
+  return { name, projects, addTodo, getTodo, todoCount };
 }
 
 export default newProjects;
