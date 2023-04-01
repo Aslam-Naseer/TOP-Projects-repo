@@ -22,6 +22,7 @@ const displayTodo = (todo) => {
 
   const calander = component("input", "todo-date");
   calander.setAttribute("type", "date");
+  calander.value = `${todo.dueDate}`;
 
   todoDiv.appendChild(checkBox);
   todoDiv.appendChild(todoTitle);
@@ -68,6 +69,18 @@ const unloadAddTodo = () => {
 
   addTodoBtn.style.display = "inline-block";
   addTodoDiv.style.display = "none";
+};
+
+const fetchTodoDetails = () => {
+  const todoName = content.querySelector(".new-todo-name");
+  const todoDate = content.querySelector(".new-todo-date");
+
+  const title = todoName.value;
+  const dueDate = todoDate.value;
+
+  if (title === "") alert("Task needs a title");
+  else unloadAddTodo();
+  return { title, dueDate };
 };
 
 const activateProject = (e) => {
@@ -119,7 +132,6 @@ const unloadAddProject = () => {
 const fetchProjectName = () => {
   const projectName = content.querySelector(".new-project-name");
   const name = projectName.value;
-  console.log(name);
   if (name === "") alert("Project needs a name");
   else unloadAddProject();
   return name;
@@ -163,4 +175,9 @@ loadEventListeners();
 const todos = content.querySelector(".todos-list");
 const projects = content.querySelector(".projects-list");
 
-export default { displayTodo, displayProject, fetchProjectName };
+export default {
+  displayTodo,
+  displayProject,
+  fetchProjectName,
+  fetchTodoDetails,
+};

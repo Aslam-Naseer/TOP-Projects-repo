@@ -180,6 +180,8 @@
 .new-todo-div {
   display: none;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
   padding: 10px;
 }
@@ -195,14 +197,14 @@
   height: 36px;
 }
 
-
-
 .new-todo-date {
   color-scheme: dark;
   font-size: 18px;
   height: 32px;
   padding: 0 6px;
 }
+
+.new-todo-div>div {}
 
 .new-todo-div .new-add,
 .new-todo-div .new-cancel {

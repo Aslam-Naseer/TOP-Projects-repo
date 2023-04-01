@@ -20,11 +20,20 @@ fun.displayProject(prj31);
 
 const addProject = () => {
   const projName = fun.fetchProjectName();
-  console.log(projName);
   if (projName === "") return;
   const proj = newProject(projName);
   fun.displayProject(proj);
 };
 
+const addNewTodo = () => {
+  const todoObj = fun.fetchTodoDetails();
+  if (todoObj.title === "") return;
+  prj1.addTodo(todoObj.title, todoObj.dueDate);
+  fun.displayTodo(todoObj);
+};
+
 const addProjectAdd = content.querySelector(".add-project .new-add");
 addProjectAdd.addEventListener("click", addProject);
+
+const addTodoAdd = content.querySelector(".new-todo-div .new-add");
+addTodoAdd.addEventListener("click", addNewTodo);
