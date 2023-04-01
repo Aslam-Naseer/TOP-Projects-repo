@@ -90,6 +90,9 @@ const activateProject = (e) => {
   const projectTitle = content.querySelector(".project-title");
   projectTitle.textContent = e.target.textContent;
 
+  const todosList = content.querySelector(".todos-list");
+  todosList.textContent = "";
+
   e.target.classList.add("active-project");
 };
 
