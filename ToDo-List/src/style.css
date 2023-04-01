@@ -119,6 +119,7 @@
   font-weight: 400;
   cursor: pointer;
   transition: all 0.35s;
+  position: relative;
 }
 
 .project-div:hover {
@@ -128,6 +129,24 @@
 .active-project {
   color: var(--text);
   background-color: #333;
+}
+
+.rem-proj {
+  position: absolute;
+  right: 20px;
+  font-weight: 700;
+  font-family: cursive;
+  color: var(--textLight);
+  transition: scale 0.25s, color 0.25s;
+}
+
+.rem-proj:hover {
+  scale: 1.3;
+  color: var(--cancel);
+}
+
+.project-div:first-child>.rem-proj {
+  display: none;
 }
 
 .add-project {

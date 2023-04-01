@@ -19,7 +19,7 @@ const displayTodo = (todo) => {
   const checkBox = component("input", "todo-done");
   checkBox.setAttribute("type", "checkbox");
   checkBox.dataset.name = todo.title;
-  checkBox.addEventListener("click", (e) => emitter.emit("func", e));
+  checkBox.addEventListener("click", (e) => emitter.emit("rem-todo", e));
 
   const todoTitle = component("div", "", `${todo.title}`);
 
@@ -99,7 +99,7 @@ const activateProject = (e) => {
   projectNodes.forEach((node) => node.classList.remove("active-project"));
 
   const projectTitle = content.querySelector(".project-title");
-  projectTitle.textContent = e.target.textContent;
+  projectTitle.textContent = e.target.dataset.name;
 
   e.target.classList.add("active-project");
 };
@@ -107,6 +107,12 @@ const activateProject = (e) => {
 const displayProject = (project) => {
   const projectDiv = component("li", "project-div", `${project.name}`);
   projects.appendChild(projectDiv);
+
+  const remove = component("span", "rem-proj", "X");
+  remove.dataset.projectName = project.name;
+  remove.addEventListener("click", (e) => emitter.emit("rem-proj", e));
+  projectDiv.appendChild(remove);
+
   return projectDiv;
 };
 

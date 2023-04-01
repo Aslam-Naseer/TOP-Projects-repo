@@ -44,7 +44,8 @@ const initializePage = () => {
 
 initializePage();
 
-fun.emitter.on("func", removeTodo);
+fun.emitter.on("rem-todo", removeTodo);
+fun.emitter.on("rem-proj", removeProject);
 
 function removeTodo(e) {
   const name = e.target.dataset.name;
@@ -53,6 +54,8 @@ function removeTodo(e) {
   projectsArray[projectName].removeTodo(name);
   displayAllTodos(projectsArray[projectName]);
 }
+
+function removeProject(e) {}
 
 const addProjectAdd = content.querySelector(".add-project .new-add");
 addProjectAdd.addEventListener("click", addProject);
