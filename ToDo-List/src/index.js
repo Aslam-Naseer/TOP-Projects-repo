@@ -25,7 +25,7 @@ const initProjects = (proj, projName) => {
   projectsArray[projName] = proj;
   const projNode = fun.displayProject(proj);
   projNode.dataset.name = projName;
-  projNode.addEventListener("click", selectProject);
+  projNode.addEventListener("click", selectProject, false);
 };
 
 const addNewTodo = () => {
@@ -55,7 +55,15 @@ function removeTodo(e) {
   displayAllTodos(projectsArray[projectName]);
 }
 
-function removeProject(e) {}
+function removeProject(e) {
+  const name = e.target.dataset.projectName;
+  e.stopPropagation();
+
+  fun.removeProject(name);
+  delete projectsArray[name];
+
+  content.querySelector(".project-div:first-child").click();
+}
 
 const addProjectAdd = content.querySelector(".add-project .new-add");
 addProjectAdd.addEventListener("click", addProject);

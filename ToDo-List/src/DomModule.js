@@ -110,7 +110,7 @@ const displayProject = (project) => {
 
   const remove = component("span", "rem-proj", "X");
   remove.dataset.projectName = project.name;
-  remove.addEventListener("click", (e) => emitter.emit("rem-proj", e));
+  remove.addEventListener("click", (e) => emitter.emit("rem-proj", e), false);
   projectDiv.appendChild(remove);
 
   return projectDiv;
@@ -165,6 +165,17 @@ const fetchSelectedProject = () => {
   return projTitle.textContent;
 };
 
+const removeProject = (projName) => {
+  const projectList = content.querySelectorAll(".project-div");
+  let project = 1,
+    count = 0;
+  projectList.forEach((node) => {
+    if (node.dataset.name === projName) project = count;
+    count++;
+  });
+  projects.removeChild(projectList[project]);
+};
+
 const loadPage = () => {
   const projectSide = component("div", "projects");
   const todosSide = component("div", "todos");
@@ -212,4 +223,5 @@ export default {
   activateProject,
   fetchSelectedProject,
   clearTodoList,
+  removeProject,
 };
