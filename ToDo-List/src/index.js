@@ -36,10 +36,14 @@ const addNewTodo = () => {
   fun.displayTodo(todoObj);
 };
 
+const loadDefault = () => {
+  content.querySelector(".project-div:first-child").click();
+};
+
 const initializePage = () => {
   const prj1 = newProject("Default");
   initProjects(prj1, "Default");
-  content.querySelector(".project-div:first-child").click();
+  loadDefault();
 };
 
 initializePage();
@@ -61,8 +65,7 @@ function removeProject(e) {
 
   fun.removeProject(name);
   delete projectsArray[name];
-
-  content.querySelector(".project-div:first-child").click();
+  loadDefault();
 }
 
 const addProjectAdd = content.querySelector(".add-project .new-add");
