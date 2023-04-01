@@ -1,5 +1,6 @@
 import newProject from "./todoModule";
 import fun from "./DomModule";
+import storageFun from "./storage";
 
 const projectsArray = {};
 
@@ -19,6 +20,7 @@ const addProject = () => {
   if (projName === "") return;
   const proj = newProject(projName);
   initProjects(proj, projName);
+  storageFun.storeProjects(projectsArray);
 };
 
 const initProjects = (proj, projName) => {
@@ -34,15 +36,15 @@ const addNewTodo = () => {
   const selectedProject = fun.fetchSelectedProject();
   projectsArray[selectedProject].addTodo(todoObj);
   fun.displayTodo(todoObj);
+  storageFun.storeProjects(projectsArray);
 };
 
 const loadDefault = () => {
-  content.querySelector(".project-div:first-child").click();
+  // content.querySelector(".project-div:first-child").click();
 };
 
 const initializePage = () => {
-  const prj1 = newProject("Default");
-  initProjects(prj1, "Default");
+  console.log(storageFun.loadProjects());
   loadDefault();
 };
 
