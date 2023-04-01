@@ -79,6 +79,7 @@ const unloadAddProject = () => {
 const fetchProjectName = () => {
   const projectName = content.querySelector(".new-project-name");
   const name = projectName.value;
+  console.log(name);
   if (name === "") alert("Project needs a name");
   else unloadAddProject();
   return name;
@@ -107,9 +108,6 @@ const loadEventListeners = () => {
 
   const addProjectCancel = content.querySelector(".add-project .new-cancel");
   addProjectCancel.addEventListener("click", unloadAddProject);
-
-  const addProjectAdd = content.querySelector(".add-project .new-add");
-  addProjectAdd.addEventListener("click", fetchProjectName);
 };
 
 loadPage();
@@ -118,4 +116,4 @@ loadEventListeners();
 const todos = content.querySelector(".todos-list");
 const projects = content.querySelector(".projects-list");
 
-export default { displayTodo, displayProject };
+export default { displayTodo, displayProject, fetchProjectName };

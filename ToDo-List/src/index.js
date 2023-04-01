@@ -17,3 +17,14 @@ fun.displayTodo(prj1.getTodo(2));
 fun.displayProject(prj1);
 fun.displayProject(prj21);
 fun.displayProject(prj31);
+
+const addProject = () => {
+  const projName = fun.fetchProjectName();
+  console.log(projName);
+  if (projName === "") return;
+  const proj = newProject(projName);
+  fun.displayProject(proj);
+};
+
+const addProjectAdd = content.querySelector(".add-project .new-add");
+addProjectAdd.addEventListener("click", addProject);
