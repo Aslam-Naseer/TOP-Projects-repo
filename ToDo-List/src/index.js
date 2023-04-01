@@ -28,25 +28,18 @@ const addNewTodo = () => {
   const todoObj = fun.fetchTodoDetails();
   if (todoObj.title === "") return;
   const selectedProject = fun.fetchSelectedProject();
-  projectsArray[selectedProject].addTodo(todoObj.title, todoObj.dueDate);
+  projectsArray[selectedProject].addTodo(todoObj);
   fun.displayTodo(todoObj);
 };
 
 const initializePage = () => {
   const prj1 = newProject("Default");
-  const prj21 = newProject("Special");
-  const prj31 = newProject("smthing");
+  const prj21 = newProject("Specl");
+  const prj31 = newProject("someone");
 
   initProjects(prj1, "Default");
   initProjects(prj21, "Specl");
   initProjects(prj31, "someone");
-
-  prj1.addTodo("Todo 1", Date());
-  prj1.addTodo("Todo 166", Date());
-  prj21.addTodo("Todo 12", Date());
-  prj21.addTodo("Todo 142", Date());
-  prj1.addTodo("Todo 12", Date());
-  prj31.addTodo("Todo 3", Date());
 
   document.querySelector(".project-div:first-child").click();
 };

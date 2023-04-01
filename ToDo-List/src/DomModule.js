@@ -1,4 +1,6 @@
 import "./style.css";
+const EventEmitter = require("events");
+const emitter = new EventEmitter();
 
 const content = document.querySelector("#content");
 
@@ -13,10 +15,12 @@ const component = (type, className, text) => {
 
 const displayTodo = (todo) => {
   const todoDiv = component("li", "todo-div");
-  todoDiv.setAttribute("id", `todo-${todo.title}`);
+  todoDiv.dataset.id = Date.now();
 
   const checkBox = component("input", "todo-done");
   checkBox.setAttribute("type", "checkbox");
+  checkBox.dataset.id = todoDiv.dataset.id;
+  checkBox.addEventListener("click", (e) => emitter.emit("func", e));
 
   const todoTitle = component("div", "", `${todo.title}`);
 
@@ -77,10 +81,11 @@ const fetchTodoDetails = () => {
 
   const title = todoName.value;
   const dueDate = todoDate.value;
+  const id = Date.now();
 
   if (title === "") alert("Task needs a title");
   else unloadAddTodo();
-  return { title, dueDate };
+  return { title, dueDate, id };
 };
 
 const activateProject = (e) => {
@@ -188,6 +193,7 @@ const todos = content.querySelector(".todos-list");
 const projects = content.querySelector(".projects-list");
 
 export default {
+  emitter,
   displayTodo,
   displayProject,
   fetchProjectName,
