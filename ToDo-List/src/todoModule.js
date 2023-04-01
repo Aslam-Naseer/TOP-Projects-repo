@@ -15,9 +15,15 @@ function newProjects(name) {
     return projects[pos];
   };
 
-  const todoCount = () => projects.length;
+  const removeTodo = (id) => {
+    projects.filter((todo) => todo.id !== id);
+  };
 
-  return { name, projects, addTodo, getTodo, todoCount };
+  const todoCount = () => {
+    return projects.length;
+  };
+
+  return { name, projects, addTodo, getTodo, todoCount, removeTodo };
 }
 
 export default newProjects;
