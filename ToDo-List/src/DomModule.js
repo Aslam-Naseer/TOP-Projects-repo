@@ -30,6 +30,25 @@ const displayTodo = (todo) => {
   todos.appendChild(todoDiv);
 };
 
+const addTodoComponent = () => {
+  const newTodoDiv = component("div", "new-todo-div");
+
+  const todoTitle = component("input", "new-todo-name");
+
+  const calander = component("input", "new-todo-date");
+  calander.setAttribute("type", "date");
+
+  const addTodoButtons = component("div");
+  addTodoButtons.appendChild(component("button", "new-add", "Add"));
+  addTodoButtons.appendChild(component("button", "new-cancel", "Cancel"));
+
+  newTodoDiv.appendChild(todoTitle);
+  newTodoDiv.appendChild(addTodoButtons);
+  newTodoDiv.appendChild(calander);
+
+  return newTodoDiv;
+};
+
 const activateProject = (e) => {
   const projectNodes = document.querySelectorAll(".project-div");
   projectNodes.forEach((node) => node.classList.remove("active-project"));
@@ -97,6 +116,7 @@ const loadPage = () => {
   todosSide.appendChild(component("div", "project-title"));
   todosSide.appendChild(component("ul", "todos-list"));
   todosSide.appendChild(component("button", "add-btn", "Add Task"));
+  todosSide.appendChild(addTodoComponent());
 
   content.appendChild(projectSide);
   content.appendChild(todosSide);
