@@ -1,15 +1,9 @@
-import newProjects from "./todoModule";
-
 function loadProjects() {
-  // const projects = {};
-  // let savedProjects = JSON.parse(localStorage.getItem("stored-projects"));
-  // if (savedProjects === null || savedProjects === undefined) return;
-  // const projectNames = Object.keys(savedProjects);
-  // projectNames.forEach((prj) => addProject(prj));
-  // function addProject(projectKey) {
-  //   const projectObject = newProjects(`${projectKey}`);
-  //   projectKey.forEach((todo) => projectObject.addTodo(todo));
-  // }
+  let savedObj = JSON.parse(localStorage.getItem("stored-projects"));
+  if (savedObj === null || savedObj === undefined) {
+    savedObj = { Default: [] };
+  }
+  return savedObj;
 }
 
 function storeProjects(savedProjects) {
@@ -25,8 +19,7 @@ function storeProjects(savedProjects) {
   }
 
   console.log(JSON.stringify(projectsArray));
-  console.log(JSON.parse(JSON.stringify(projectsArray)));
-  //localStorage.setItem("stored-projects", projects);
+  localStorage.setItem("stored-projects", JSON.stringify(projectsArray));
 }
 
 // function loadProjects() {

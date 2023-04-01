@@ -40,11 +40,25 @@ const addNewTodo = () => {
 };
 
 const loadDefault = () => {
-  // content.querySelector(".project-div:first-child").click();
+  content.querySelector(".project-div:first-child").click();
 };
 
 const initializePage = () => {
-  console.log(storageFun.loadProjects());
+  const savedProjects = storageFun.loadProjects();
+
+  const projectList = Object.keys(savedProjects);
+  console.log(projectList);
+  projectList.forEach((key) => {
+    const proj = newProject(key);
+    initProjects(proj, key);
+    console.log(savedProjects[key]);
+    savedProjects[key].forEach((todo) => {
+      proj.addTodo(todo);
+    });
+  });
+
+  console.log(projectsArray);
+
   loadDefault();
 };
 
