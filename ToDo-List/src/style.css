@@ -5,6 +5,8 @@
   --textLight: #999;
   --theme: #0ff;
   --checked: rgb(0, 255, 98);
+  --add: #90fe90;
+  --cancel: #ff8686;
 }
 
 #content {
@@ -34,7 +36,7 @@
   padding: 20px 70px;
 }
 
-.projects>div,
+.projects>div:first-child,
 .todos>div {
   border-bottom: 2px solid var(--textLight);
   font-size: 34px;
@@ -126,4 +128,49 @@
 .active-project {
   color: var(--text);
   background-color: #333;
+}
+
+.add-project {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.new-project-name {
+  background-color: #444;
+  border: 1px solid black;
+  color: var(--text);
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  height: 36px;
+  ;
+}
+
+.add-project>div {
+  margin: 12px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-add,
+.new-cancel {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 18px;
+  font-weight: 600;
+  height: 36px;
+  width: 45%;
+  cursor: pointer;
+}
+
+.new-add {
+  background-color: var(--add);
+}
+
+.new-cancel {
+  background-color: var(--cancel);
 }

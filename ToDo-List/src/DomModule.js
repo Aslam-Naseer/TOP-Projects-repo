@@ -42,6 +42,48 @@ const displayProject = (project) => {
   projects.appendChild(projectDiv);
 };
 
+const addProjectComponent = () => {
+  const addProjectDiv = component("div", "add-project");
+
+  const newProjectName = component("input", "new-project-name");
+  const addProjectButtons = component("div");
+
+  addProjectButtons.appendChild(component("button", "new-add", "Add"));
+  addProjectButtons.appendChild(component("button", "new-cancel", "Cancel"));
+
+  addProjectDiv.appendChild(newProjectName);
+  addProjectDiv.appendChild(addProjectButtons);
+
+  return addProjectDiv;
+};
+
+const loadAddProject = () => {
+  const addProjectDiv = document.querySelector(".add-project");
+  const addProjectBtn = content.querySelector(".projects>.add-btn");
+
+  addProjectBtn.style.display = "none";
+  addProjectDiv.style.display = "flex";
+};
+
+const unloadAddProject = () => {
+  const addProjectDiv = content.querySelector(".add-project");
+  const addProjectBtn = content.querySelector(".projects>.add-btn");
+
+  const textField = addProjectDiv.querySelector(".new-project-name");
+  textField.value = "";
+
+  addProjectBtn.style.display = "inline-block";
+  addProjectDiv.style.display = "none";
+};
+
+const fetchProjectName = () => {
+  const projectName = content.querySelector(".new-project-name");
+  const name = projectName.value;
+  if (name === "") alert("Project needs a name");
+  else unloadAddProject();
+  return name;
+};
+
 const loadPage = () => {
   const projectSide = component("div", "projects");
   const todosSide = component("div", "todos");
@@ -49,6 +91,7 @@ const loadPage = () => {
   projectSide.appendChild(component("div", "", "Projects"));
   projectSide.appendChild(component("ul", "projects-list"));
   projectSide.appendChild(component("button", "add-btn", "Add Project"));
+  projectSide.appendChild(addProjectComponent());
 
   todosSide.appendChild(component("div", "project-title"));
   todosSide.appendChild(component("ul", "todos-list"));
@@ -58,8 +101,21 @@ const loadPage = () => {
   content.appendChild(todosSide);
 };
 
+const loadEventListeners = () => {
+  const addProjectBtn = content.querySelector(".projects>.add-btn");
+  addProjectBtn.addEventListener("click", loadAddProject);
+
+  const addProjectCancel = content.querySelector(".add-project .new-cancel");
+  addProjectCancel.addEventListener("click", unloadAddProject);
+
+  const addProjectAdd = content.querySelector(".add-project .new-add");
+  addProjectAdd.addEventListener("click", fetchProjectName);
+};
+
 loadPage();
+loadEventListeners();
 
 const todos = content.querySelector(".todos-list");
 const projects = content.querySelector(".projects-list");
+
 export default { displayTodo, displayProject };
