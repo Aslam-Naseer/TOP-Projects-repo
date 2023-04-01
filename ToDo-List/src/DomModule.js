@@ -15,11 +15,10 @@ const component = (type, className, text) => {
 
 const displayTodo = (todo) => {
   const todoDiv = component("li", "todo-div");
-  todoDiv.dataset.id = Date.now();
 
   const checkBox = component("input", "todo-done");
   checkBox.setAttribute("type", "checkbox");
-  checkBox.dataset.id = todoDiv.dataset.id;
+  checkBox.dataset.name = todo.title;
   checkBox.addEventListener("click", (e) => emitter.emit("func", e));
 
   const todoTitle = component("div", "", `${todo.title}`);
@@ -88,15 +87,17 @@ const fetchTodoDetails = () => {
   return { title, dueDate, id };
 };
 
+const clearTodoList = () => {
+  const todosList = content.querySelector(".todos-list");
+  todosList.textContent = "";
+};
+
 const activateProject = (e) => {
   const projectNodes = content.querySelectorAll(".project-div");
   projectNodes.forEach((node) => node.classList.remove("active-project"));
 
   const projectTitle = content.querySelector(".project-title");
   projectTitle.textContent = e.target.textContent;
-
-  const todosList = content.querySelector(".todos-list");
-  todosList.textContent = "";
 
   e.target.classList.add("active-project");
 };
@@ -200,4 +201,5 @@ export default {
   fetchTodoDetails,
   activateProject,
   fetchSelectedProject,
+  clearTodoList,
 };

@@ -3,7 +3,7 @@ function createTodo(state) {
 }
 
 function newProjects(name) {
-  const projects = [];
+  let projects = [];
 
   const addTodo = (state) => {
     projects.push(createTodo(state));
@@ -15,8 +15,11 @@ function newProjects(name) {
     return projects[pos];
   };
 
-  const removeTodo = (id) => {
-    projects.filter((todo) => todo.id !== id);
+  const removeTodo = (name) => {
+    projects = projects.filter((todo) => {
+      return name !== todo.title;
+    });
+    console.log(projects);
   };
 
   const todoCount = () => {

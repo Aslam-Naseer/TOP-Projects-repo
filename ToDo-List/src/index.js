@@ -4,6 +4,7 @@ import fun from "./DomModule";
 const projectsArray = {};
 
 const displayAllTodos = (proj) => {
+  fun.clearTodoList();
   for (let i = 0; i < proj.todoCount(); i++) fun.displayTodo(proj.getTodo(i));
 };
 
@@ -52,10 +53,11 @@ initializePage();
 fun.emitter.on("func", removeTodo);
 
 function removeTodo(e) {
-  const todoId = e.target.dataset.id;
+  const name = e.target.dataset.name;
   const projectName = fun.fetchSelectedProject();
 
-  projectsArray[projectName].removeTodo(todoId);
+  projectsArray[projectName].removeTodo(name);
+  displayAllTodos(projectsArray[projectName]);
 }
 
 const addProjectAdd = content.querySelector(".add-project .new-add");
