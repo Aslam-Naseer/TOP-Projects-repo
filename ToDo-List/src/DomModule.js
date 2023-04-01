@@ -49,6 +49,27 @@ const addTodoComponent = () => {
   return newTodoDiv;
 };
 
+const loadAddTodo = () => {
+  const addTodoDiv = document.querySelector(".new-todo-div");
+  const addTodoBtn = content.querySelector(".todos>.add-btn");
+
+  addTodoBtn.style.display = "none";
+  addTodoDiv.style.display = "flex";
+};
+
+const unloadAddTodo = () => {
+  const addTodoDiv = document.querySelector(".new-todo-div");
+  const addTodoBtn = content.querySelector(".todos>.add-btn");
+
+  const textField = document.querySelector(".new-todo-name");
+  const dateField = document.querySelector(".new-todo-date");
+  textField.value = "";
+  dateField.value = "";
+
+  addTodoBtn.style.display = "inline-block";
+  addTodoDiv.style.display = "none";
+};
+
 const activateProject = (e) => {
   const projectNodes = document.querySelectorAll(".project-div");
   projectNodes.forEach((node) => node.classList.remove("active-project"));
@@ -128,6 +149,12 @@ const loadEventListeners = () => {
 
   const addProjectCancel = content.querySelector(".add-project .new-cancel");
   addProjectCancel.addEventListener("click", unloadAddProject);
+
+  const addTodoBtn = content.querySelector(".todos>.add-btn");
+  addTodoBtn.addEventListener("click", loadAddTodo);
+
+  const addTodoCancel = content.querySelector(".new-todo-div .new-cancel");
+  addTodoCancel.addEventListener("click", unloadAddTodo);
 };
 
 loadPage();
