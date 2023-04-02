@@ -9,7 +9,7 @@ function loadProjects() {
 function storeProjects(savedProjects) {
   const projectsArray = {};
 
-  console.log(savedProjects);
+  // console.log(savedProjects);
 
   const projectNames = Object.keys(savedProjects);
   projectNames.forEach((key) => addProjects(key));
@@ -18,7 +18,7 @@ function storeProjects(savedProjects) {
     projectsArray[projectKey] = savedProjects[projectKey].projects;
   }
 
-  console.log(JSON.stringify(projectsArray));
+  // console.log(JSON.stringify(projectsArray));
   localStorage.setItem("stored-projects", JSON.stringify(projectsArray));
 }
 

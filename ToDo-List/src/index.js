@@ -5,6 +5,7 @@ import storageFun from "./storage";
 const projectsArray = {};
 
 const displayAllTodos = (proj) => {
+  console.log(proj);
   fun.clearTodoList();
   for (let i = 0; i < proj.todoCount(); i++) fun.displayTodo(proj.getTodo(i));
 };
@@ -47,17 +48,13 @@ const initializePage = () => {
   const savedProjects = storageFun.loadProjects();
 
   const projectList = Object.keys(savedProjects);
-  console.log(projectList);
   projectList.forEach((key) => {
     const proj = newProject(key);
     initProjects(proj, key);
-    console.log(savedProjects[key]);
     savedProjects[key].forEach((todo) => {
       proj.addTodo(todo);
     });
   });
-
-  console.log(projectsArray);
 
   loadDefault();
 };
@@ -72,7 +69,11 @@ function removeTodo(e) {
   const projectName = fun.fetchSelectedProject();
 
   projectsArray[projectName].removeTodo(name);
+  console.log(projectsArray);
+  console.log(projectsArray[projectName]);
   displayAllTodos(projectsArray[projectName]);
+
+  storageFun.storeProjects(projectsArray);
 }
 
 function removeProject(e) {
@@ -82,6 +83,8 @@ function removeProject(e) {
   fun.removeProject(name);
   delete projectsArray[name];
   loadDefault();
+
+  storageFun.storeProjects(projectsArray);
 }
 
 const addProjectAdd = content.querySelector(".add-project .new-add");

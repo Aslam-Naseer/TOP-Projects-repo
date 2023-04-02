@@ -19,7 +19,7 @@ const displayTodo = (todo) => {
   const checkBox = component("input", "todo-done");
   checkBox.setAttribute("type", "checkbox");
   checkBox.dataset.name = todo.title;
-  checkBox.addEventListener("click", (e) => emitter.emit("rem-todo", e));
+  checkBox.addEventListener("click", (e) => emitter.emit("rem-todo", e), false);
 
   const todoTitle = component("div", "", `${todo.title}`);
 

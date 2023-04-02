@@ -15,12 +15,11 @@ function newProjects(name) {
     return projects[pos];
   };
 
-  const removeTodo = (name) => {
-    projects = projects.filter((todo) => {
-      return name !== todo.title;
-    });
-    console.log(projects);
-  };
+  function removeTodo(name) {
+    let i = 0;
+    while (i < todoCount && getTodo(i).title !== name) i++;
+    projects.splice(i, 1);
+  }
 
   const todoCount = () => {
     return projects.length;
