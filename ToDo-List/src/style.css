@@ -232,8 +232,6 @@
   padding: 0 6px;
 }
 
-.new-todo-div>div {}
-
 .new-todo-div .new-add,
 .new-todo-div .new-cancel {
   margin: 0 6px;

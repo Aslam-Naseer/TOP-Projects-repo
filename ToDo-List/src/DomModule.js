@@ -18,8 +18,8 @@ const dateComponent = (dueDate) => {
   const calanderLabel = component("label", "todo-date-label");
   const calander = component("input", "todo-date");
   calander.setAttribute("type", "date");
-  calander.setAttribute("id", `${dueDate}+${Date.now()}`);
-  calanderLabel.setAttribute("for", calander.getAttribute("id"));
+  // calander.setAttribute("id", `${dueDate}+${Date.now()}`);
+  // calanderLabel.setAttribute("for", calander.getAttribute("id"));
 
   calander.value = `${dueDate}`;
 
