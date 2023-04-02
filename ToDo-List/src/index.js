@@ -4,6 +4,10 @@ import storageFun from "./storage";
 
 const projectsArray = {};
 
+const isExistingProject = (pname) => {
+  return projectsArray[pname] !== undefined;
+};
+
 const displayAllTodos = (proj) => {
   fun.clearTodoList();
   for (let i = 0; i < proj.todoCount(); i++) fun.displayTodo(proj.getTodo(i));
@@ -18,6 +22,10 @@ const selectProject = (e) => {
 const addProject = () => {
   const projName = fun.fetchProjectName();
   if (projName === "") return;
+  if (isExistingProject(projName)) {
+    alert("Project Already exists!");
+    return;
+  }
   const proj = newProject(projName);
   initProjects(proj, projName);
   storageFun.storeProjects(projectsArray);
