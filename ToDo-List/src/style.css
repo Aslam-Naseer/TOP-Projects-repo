@@ -108,6 +108,13 @@
 
 .todo-date {
   color-scheme: dark;
+  display: none;
+}
+
+.todo-date-label {
+  font-size: 16px;
+  align-self: center;
+  color: var(--textLight);
 }
 
 .project-div {

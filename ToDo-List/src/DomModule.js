@@ -15,24 +15,19 @@ const component = (type, className, text) => {
 };
 
 const dateComponent = (dueDate) => {
-  const calanderLabel = component("label");
+  const calanderLabel = component("label", "todo-date-label");
   const calander = component("input", "todo-date");
   calander.setAttribute("type", "date");
   calander.setAttribute("id", `${dueDate}+${Date.now()}`);
   calanderLabel.setAttribute("for", calander.getAttribute("id"));
 
   calander.value = `${dueDate}`;
-  if (dueDate !== "")
-    console.log(intlFormatDistance(new Date(dueDate), new Date()));
-  else {
-    console.log("No date");
-  }
+
   calanderLabel.textContent =
     dueDate !== ""
       ? intlFormatDistance(new Date(dueDate), new Date())
       : "No date";
 
-  console.log(calanderLabel);
   calanderLabel.appendChild(calander);
   return calanderLabel;
 };
