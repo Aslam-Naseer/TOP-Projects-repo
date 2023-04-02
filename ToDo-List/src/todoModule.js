@@ -15,9 +15,14 @@ function newProjects(name) {
     return projects[pos];
   };
 
-  function removeTodo(name) {
+  function removeTodo(id) {
     let i = 0;
-    while (i < todoCount && getTodo(i).title !== name) i++;
+    while (
+      i < todoCount() &&
+      id !== `${getTodo(i).title}::${getTodo(i).dueDate}`
+    )
+      i++;
+
     projects.splice(i, 1);
   }
 
