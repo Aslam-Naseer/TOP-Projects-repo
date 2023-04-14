@@ -8,4 +8,7 @@ main {
   background-image: url(bg_night.jpg);
   background-size: cover;
   color: white;
+
+  display: grid;
+  grid-template-rows: 120px 1fr;
 }

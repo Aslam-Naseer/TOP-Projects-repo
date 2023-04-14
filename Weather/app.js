@@ -61,7 +61,14 @@ const appLogic = (() => {
     }
   };
 
-  return { editForm };
+  const initForm = async () => {
+    locationInput.value = "London";
+    const data = await fetchData();
+    DOMstuff.setDOM(data);
+  };
+
+  return { editForm, initForm };
 })();
 
 form.addEventListener("submit", appLogic.editForm);
+window.addEventListener("load", appLogic.initForm);
