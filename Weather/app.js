@@ -1,5 +1,4 @@
 const form = document.querySelector(".header-form");
-const locationInput = form.querySelector(".search-box");
 
 const DOMstuff = (() => {
   const ambient = document.querySelector(".ambient");
@@ -29,6 +28,9 @@ const DOMstuff = (() => {
 })();
 
 const appLogic = (() => {
+  const form = document.querySelector(".header-form");
+  const locationInput = form.querySelector(".search-box");
+
   const fetchData = async () => {
     try {
       const response = await fetch(
