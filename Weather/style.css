@@ -7,7 +7,7 @@
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(bg_night.jpg);
   background-size: cover;
   color: white;
@@ -91,6 +91,7 @@ main {
 .extras {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   justify-content: space-between;
   margin: 30px 50px;
   padding: 0 30px;
