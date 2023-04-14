@@ -21,7 +21,9 @@ const DOMstuff = (() => {
     ambient.textContent = err;
     locName.textContent = "";
     temp.textContent = "";
-    console.error(err);
+    feels.textContent = "";
+    wind.textContent = "";
+    humidity.textContent = "";
   };
 
   return { setDOM, setError };
