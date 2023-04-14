@@ -32,6 +32,7 @@ const DOMstuff = (() => {
 const appLogic = (() => {
   const form = document.querySelector(".header-form");
   const locationInput = form.querySelector(".search-box");
+  const searchBtn = form.querySelector(".search-btn");
 
   const fetchData = async () => {
     try {
@@ -45,7 +46,7 @@ const appLogic = (() => {
 
         return data;
       } else {
-        throw new Error("unnamed location");
+        throw new Error("Invalid Location");
       }
     } catch (err) {
       throw err;
@@ -65,8 +66,7 @@ const appLogic = (() => {
 
   const initForm = async () => {
     locationInput.value = "London";
-    const data = await fetchData();
-    DOMstuff.setDOM(data);
+    searchBtn.click();
   };
 
   return { editForm, initForm };
