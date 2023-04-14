@@ -7,4 +7,5 @@ main {
   height: 100vh;
   background-image: url(bg_night.jpg);
   background-size: cover;
+  color: white;
 }

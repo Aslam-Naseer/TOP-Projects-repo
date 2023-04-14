@@ -1,9 +1,7 @@
 const form = document.querySelector(".header-form");
 const locationInput = form.querySelector(".search-box");
 
-function fnc() {
-  throw new Error("LL");
-}
+const setText = (node, text) => (node.textContent = text);
 
 const fetchData = async () => {
   try {
@@ -24,7 +22,21 @@ const fetchData = async () => {
   }
 };
 
-const setDOM = (data) => {};
+const ambient = document.querySelector(".ambient");
+const locName = document.querySelector(".loc-name");
+const temp = document.querySelector(".temp");
+
+const setDOM = (data) => {
+  ambient.textContent = data.current.condition.text;
+  locName.textContent = data.location.name;
+  temp.textContent = `${data.current.temp_c} C`;
+};
+
+const setError = (err) => {
+  ambient.textContent = err;
+  locName.textContent = "";
+  temp.textContent = "";
+};
 
 const editForm = async (e) => {
   e.preventDefault();
@@ -33,7 +45,7 @@ const editForm = async (e) => {
     console.log(data);
     setDOM(data);
   } catch (err) {
-    console.error(err);
+    setError(err);
   }
 };
 
