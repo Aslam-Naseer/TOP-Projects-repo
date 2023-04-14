@@ -13,8 +13,8 @@ const DOMstuff = (() => {
     locName.textContent = `${data.location.name}, ${data.location.country}`;
     temp.textContent = `${data.current.temp_c}`;
     feels.textContent = `${data.current.feelslike_c}`;
-    wind.textContent = `${data.current.wind_kph} KPH`;
-    humidity.textContent = `${data.current.humidity} %`;
+    wind.textContent = `${data.current.wind_kph}`;
+    humidity.textContent = `${data.current.humidity}`;
   };
 
   const setError = (err) => {

@@ -76,8 +76,23 @@ main {
   display: flex;
 }
 
-.temp {}
+.temp {
+  font-size: 150px;
+  font-weight: 700;
+  position: relative;
+}
+
+.temp>.deg-c {
+  position: absolute;
+  font-size: 24px;
+  top: 20px;
+}
 
 .extras {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 30px 50px;
+  padding: 0 30px;
+  border-left: 2px solid rgb(255, 255, 255, 0.5)
 }
