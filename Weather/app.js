@@ -25,17 +25,24 @@ const fetchData = async () => {
 const ambient = document.querySelector(".ambient");
 const locName = document.querySelector(".loc-name");
 const temp = document.querySelector(".temp");
+const feels = document.querySelector(".feels");
+const wind = document.querySelector(".wind");
+const humidity = document.querySelector(".humidity");
 
 const setDOM = (data) => {
   ambient.textContent = data.current.condition.text;
   locName.textContent = data.location.name;
-  temp.textContent = `${data.current.temp_c} C`;
+  temp.textContent = `${data.current.temp_c} c`;
+  feels.textContent = `${data.current.feelslike_c} c`;
+  wind.textContent = `${data.current.wind_kph} kph`;
+  humidity.textContent = data.current.humidity;
 };
 
 const setError = (err) => {
   ambient.textContent = err;
   locName.textContent = "";
   temp.textContent = "";
+  console.error(err);
 };
 
 const editForm = async (e) => {
