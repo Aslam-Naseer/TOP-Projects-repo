@@ -3,18 +3,18 @@ const form = document.querySelector(".header-form");
 const DOMstuff = (() => {
   const ambient = document.querySelector(".ambient");
   const locName = document.querySelector(".loc-name");
-  const temp = document.querySelector(".temp");
-  const feels = document.querySelector(".feels");
-  const wind = document.querySelector(".wind");
-  const humidity = document.querySelector(".humidity");
+  const temp = document.querySelector(".temp>span");
+  const feels = document.querySelector(".feels>span");
+  const wind = document.querySelector(".wind>span");
+  const humidity = document.querySelector(".humidity>span");
 
   const setDOM = (data) => {
     ambient.textContent = data.current.condition.text;
     locName.textContent = `${data.location.name}, ${data.location.country}`;
-    temp.textContent = `${data.current.temp_c} c`;
-    feels.textContent = `${data.current.feelslike_c} c`;
-    wind.textContent = `${data.current.wind_kph} kph`;
-    humidity.textContent = data.current.humidity;
+    temp.textContent = `${data.current.temp_c}`;
+    feels.textContent = `${data.current.feelslike_c}`;
+    wind.textContent = `${data.current.wind_kph} KPH`;
+    humidity.textContent = `${data.current.humidity} %`;
   };
 
   const setError = (err) => {
