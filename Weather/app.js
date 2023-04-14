@@ -5,25 +5,36 @@ function fnc() {
   throw new Error("LL");
 }
 
-const fetchData = async (e) => {
-  e.preventDefault();
-
+const fetchData = async () => {
   try {
     const response = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=ec6f8969587147e9bcb134400230804&q=${locationInput.value}`
     );
 
-    const data = await response.json();
-
-    if (!data.error) {
-      console.log(data);
+    if (response.ok) {
+      const data = await response.json();
       locationInput.value = "";
+
+      return data;
     } else {
       throw new Error("unnamed location");
     }
   } catch (err) {
-    console.error(`error: ${err}`);
+    throw err;
   }
 };
 
-form.addEventListener("submit", fetchData);
+const setDOM = (data) => {};
+
+const editForm = async (e) => {
+  e.preventDefault();
+  try {
+    const data = await fetchData();
+    console.log(data);
+    setDOM(data);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+form.addEventListener("submit", editForm);
