@@ -10,7 +10,7 @@ const DOMstuff = (() => {
 
   const setDOM = (data) => {
     ambient.textContent = data.current.condition.text;
-    locName.textContent = data.location.name;
+    locName.textContent = `${data.location.name}, ${data.location.country}`;
     temp.textContent = `${data.current.temp_c} c`;
     feels.textContent = `${data.current.feelslike_c} c`;
     wind.textContent = `${data.current.wind_kph} kph`;

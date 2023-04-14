@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;1,400;1,700&family=Source+Sans+Pro:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;0:600;1,400;1,700&family=Source+Sans+Pro:wght@200;400;700&display=swap');
 
 * {
   padding: 0;
@@ -51,4 +51,33 @@ main {
 
 .search-svg {
   width: 30px;
+}
+
+.datas {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto 100px;
+  font-weight: 500;
+}
+
+.ambient {
+  font-size: 28px;
+}
+
+.loc-name {
+  font-size: 46px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+}
+
+.weather {
+  display: flex;
+}
+
+.temp {}
+
+.extras {
+  display: flex;
 }
