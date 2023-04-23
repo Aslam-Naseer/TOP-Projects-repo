@@ -16,8 +16,5 @@
     "url": "https://github.com/Aslam-Naseer/TOP-Projects-repo/issues"
   },
   "homepage": "https://github.com/Aslam-Naseer/TOP-Projects-repo#readme",
-  "devDependencies": {
-    "jest": "^29.5.0"
-  },
   "keywords": []
 }
