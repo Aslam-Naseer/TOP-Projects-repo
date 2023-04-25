@@ -14,7 +14,7 @@ const b = bot(botBoard, playerBoard);
 const botAttack = () => {
   let attackObj = null;
   while (attackObj === null) attackObj = b.attack();
-  domStuff.attack(false, attackObj.x, attackObj.y, attackObj.res);
+  return domStuff.attack(false, attackObj.x, attackObj.y, attackObj.res);
 };
 
 const playerAttack = (e) => {
@@ -22,12 +22,15 @@ const playerAttack = (e) => {
   const y = e.target.dataset.y;
 
   e.target.style.pointerEvents = "none";
-  domStuff.attack(true, x, y, p.attack(x, y));
+  return domStuff.attack(true, x, y, p.attack(x, y));
 };
 
 const play = (e) => {
-  playerAttack(e);
-  botAttack();
+  let x;
+  x = playerAttack(e);
+  if (x && b.finished()) console.log("P won");
+  x = botAttack();
+  if (x && p.finished()) console.log("B won");
 };
 
 export default { play, p, b, playerBoard, botBoard };

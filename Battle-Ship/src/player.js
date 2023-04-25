@@ -7,7 +7,9 @@ function player(board, opponent) {
     return board.placeShip(ship, x, y, vert);
   };
 
-  return { attack, placeShip };
+  const finished = () => board.allSunk();
+
+  return { attack, placeShip, finished };
 }
 
 function bot(board, opponent) {
@@ -43,7 +45,9 @@ function bot(board, opponent) {
     return board.placeShip(ship, x, y, vert);
   };
 
-  return { attack, filled, placeShip };
+  const finished = () => board.allSunk();
+
+  return { attack, filled, placeShip, finished };
 }
 
 export { player, bot };

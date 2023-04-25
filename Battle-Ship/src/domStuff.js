@@ -43,12 +43,12 @@ const attack = (isPlayer, x, y, isHit) => {
     .querySelector(`[data-row='${x}']`)
     .querySelector(`[data-y='${y}']`);
 
-  console.log(isHit);
-
   if (isHit) {
     cell.classList.add("hit");
+    return true;
   } else {
     cell.classList.add("miss");
+    return false;
   }
 };
 
