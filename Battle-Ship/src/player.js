@@ -1,10 +1,10 @@
-function player(name, board, opponent) {
+function player(board, opponent) {
   const attack = (x, y) => {
     return opponent.attack(x, y);
   };
 
-  const placeShip = (x, y) => {
-    return board.placeShip(x, y);
+  const placeShip = (ship, x, y, vert) => {
+    return board.placeShip(ship, x, y, vert);
   };
 
   return { attack, placeShip };
@@ -38,7 +38,11 @@ function bot(board, opponent) {
     return opponent.attack(x, y);
   };
 
-  return { attack, filled };
+  const placeShip = (ship, x, y, vert) => {
+    return board.placeShip(ship, x, y, vert);
+  };
+
+  return { attack, filled, placeShip };
 }
 
 export { player, bot };
