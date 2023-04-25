@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&family=Open+Sans&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+body {
+  background-color: #121212;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 180px 1fr;
+  place-items: center;
+}
+
+h1 {
+  font-family: 'Big Shoulders Stencil Display', cursive;
+  font-size: 88px;
+  font-weight: 700;
+  letter-spacing: 10px;
+}
