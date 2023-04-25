@@ -17,16 +17,10 @@ const playerAttack = (e) => {
 
   console.log(botBoard.grid[x][y]);
 
+  e.target.style.pointerEvents = "none";
   domStuff.attack(true, x, y, p.attack(x, y));
 };
 
-const botAttack = (e) => {
-  const x = e.target.dataset.x;
-  const y = e.target.dataset.y;
-
-  console.log(botBoard.grid[x][y]);
-
-  domStuff.attack(false, x, y, b.attack(x, y));
-};
+const botAttack = (e) => {};
 
 export default { playerAttack, botAttack, p, b, playerBoard, botBoard };
