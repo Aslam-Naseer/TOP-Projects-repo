@@ -24,7 +24,7 @@ const setBoard = () => {
       botCell.dataset.x = i;
       botCell.dataset.y = j;
 
-      botCell.addEventListener("click", pipe.playerAttack);
+      botCell.addEventListener("click", pipe.play);
 
       playerRow.appendChild(playerCell);
       botRow.appendChild(botCell);

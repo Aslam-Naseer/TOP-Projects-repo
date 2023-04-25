@@ -17,25 +17,26 @@ function bot(board, opponent) {
     return filled.findIndex((pair) => pair[0] === x && pair[1] === y);
   };
 
-  const isFull = () => filled.length > 143;
+  const isFull = () => filled.length > 99;
 
   const attack = () => {
     if (isFull()) {
-      throw new Error(filled.length);
+      return null;
     }
 
     let flag = false;
     let x, y;
 
     while (!flag) {
-      x = Math.floor(Math.random() * 12);
-      y = Math.floor(Math.random() * 12);
+      x = Math.floor(Math.random() * 10);
+      y = Math.floor(Math.random() * 10);
 
       flag = isInFilled(x, y) === -1;
     }
 
     filled.push([x, y]);
-    return opponent.attack(x, y);
+    const res = opponent.attack(x, y);
+    return { x, y, res };
   };
 
   const placeShip = (ship, x, y, vert) => {

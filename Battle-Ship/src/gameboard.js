@@ -1,4 +1,4 @@
-function gameboard(MAX = 12) {
+function gameboard(MAX = 10) {
   const grid = [];
   const ships = [];
 
@@ -48,10 +48,5 @@ function gameboard(MAX = 12) {
 
   return { grid, placeShip, attack, allSunk };
 }
-
-// const board = gameboard();
-// board.placeShip(3, 6, 6);
-// console.log(board.filled.find(5));
-// console.log(board.filled);
 
 export default gameboard;

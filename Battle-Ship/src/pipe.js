@@ -11,16 +11,23 @@ const botBoard = board();
 const p = player(playerBoard, botBoard);
 const b = bot(botBoard, playerBoard);
 
+const botAttack = () => {
+  let attackObj = null;
+  while (attackObj === null) attackObj = b.attack();
+  domStuff.attack(false, attackObj.x, attackObj.y, attackObj.res);
+};
+
 const playerAttack = (e) => {
   const x = e.target.dataset.x;
   const y = e.target.dataset.y;
-
-  console.log(botBoard.grid[x][y]);
 
   e.target.style.pointerEvents = "none";
   domStuff.attack(true, x, y, p.attack(x, y));
 };
 
-const botAttack = (e) => {};
+const play = (e) => {
+  playerAttack(e);
+  botAttack();
+};
 
-export default { playerAttack, botAttack, p, b, playerBoard, botBoard };
+export default { play, p, b, playerBoard, botBoard };
