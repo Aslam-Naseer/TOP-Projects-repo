@@ -14,11 +14,13 @@ const setBoard = () => {
     for (let j = 0; j < 10; j++) {
       const playerCell = document.createElement("div");
       playerCell.classList.add("cell");
-      playerCell.dataset.col = j;
+      playerCell.dataset.x = i;
+      playerCell.dataset.y = j;
 
       const botCell = document.createElement("div");
       botCell.classList.add("cell");
-      botCell.dataset.col = j;
+      botCell.dataset.x = i;
+      botCell.dataset.y = j;
 
       playerRow.appendChild(playerCell);
       botRow.appendChild(botCell);
@@ -31,4 +33,26 @@ const setBoard = () => {
 
 setBoard();
 
-export default {};
+const attack = (isPlayer, x, y, isHit) => {
+  const board = isPlayer ? bot : player;
+  const cell = board
+    .querySelector(`[data-row]=${x}`)
+    .querySelector(`[data-y]=${y}`);
+
+  if (isHit) {
+    cell.classList.add("hit");
+  } else {
+    cell.classList.add("miss");
+  }
+};
+
+const isAttacked = (x, y, isPlayer) => {
+  const board = isPlayer ? player : bot;
+  const cell = board
+    .querySelector(`[data-row]=${x}`)
+    .querySelector(`[data-y]=${y}`);
+
+  return cell.classList.contains("miss") || cell.classList.contains("hit");
+};
+
+export default { attack, isAttacked };
