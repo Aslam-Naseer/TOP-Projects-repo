@@ -35,7 +35,7 @@ const play = (e) => {
 
 const placeShip = (ship, x, y, vert) => {
   const cellsPlaced = p.placeShip(ship, x, y, vert);
-  if (cellsPlaced === null) return null;
+  if (Array.isArray(cellsPlaced) === false) throw new Error("Cant place ship");
   domStuff.placeFriendly(cellsPlaced);
 };
 
