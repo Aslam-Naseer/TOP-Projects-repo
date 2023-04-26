@@ -71,3 +71,18 @@ h1 {
   background-color: lime;
   pointer-events: none;
 }
+
+.new-game {
+  margin: 50px;
+  background-color: #222;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px 35px;
+  transition: background-color 0.2s;
+}
+
+.new-game:hover {
+  background-color: #333;
+}

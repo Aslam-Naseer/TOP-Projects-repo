@@ -1,4 +1,4 @@
-import { play } from "./game";
+import { play, newGame } from "./game";
 
 const player = document.querySelector("#player");
 const bot = document.querySelector("#bot");
@@ -76,5 +76,7 @@ const placeFriendly = (arr) => {
     cell.classList.add("ship");
   });
 };
+
+document.querySelector(".new-game").addEventListener("click", newGame);
 
 export default { setBoard, attack, isAttacked, placeFriendly, clearBoards };
