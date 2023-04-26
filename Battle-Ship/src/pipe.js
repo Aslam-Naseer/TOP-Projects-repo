@@ -21,7 +21,6 @@ const playerAttack = (e) => {
   const x = e.target.dataset.x;
   const y = e.target.dataset.y;
 
-  e.target.style.pointerEvents = "none";
   return domStuff.attack(true, x, y, p.attack(x, y));
 };
 

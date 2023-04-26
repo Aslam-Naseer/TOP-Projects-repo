@@ -20,6 +20,7 @@ const setBoard = () => {
       playerCell.dataset.y = j;
 
       const botCell = document.createElement("div");
+      botCell.classList.add("attacking-cell");
       botCell.classList.add("cell");
       botCell.dataset.x = i;
       botCell.dataset.y = j;
