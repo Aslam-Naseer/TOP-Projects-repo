@@ -33,4 +33,12 @@ const play = (e) => {
   if (x && p.finished()) console.log("B won");
 };
 
-export default { play, p, b, playerBoard, botBoard };
+const placeShip = (ship, x, y, vert) => {
+  const cellsPlaced = p.placeShip(ship, x, y, vert);
+  if (cellsPlaced === null) return null;
+  domStuff.placeFriendly(cellsPlaced);
+};
+
+const obj = { p, b, playerBoard, botBoard };
+
+export { play, obj, placeShip };

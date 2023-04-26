@@ -22,13 +22,22 @@ function gameboard(MAX = 10) {
   };
 
   const placeShip = (ship, x, y, vert = false) => {
-    if (!isFreeSpace(x, y, ship.length, vert)) throw new Error("No space");
+    const cells = [];
+
+    if (!isFreeSpace(x, y, ship.length, vert)) return null;
     if (!vert) {
-      for (let i = y; i < y + ship.length; i++) grid[x][i] = ship;
+      for (let i = y; i < y + ship.length; i++) {
+        grid[x][i] = ship;
+        cells.push([x, i]);
+      }
     } else {
-      for (let i = x; i < x + ship.length; i++) grid[i][y] = ship;
+      for (let i = x; i < x + ship.length; i++) {
+        grid[i][y] = ship;
+        cells.push([i, y]);
+      }
     }
     ships.push(ship);
+    return cells;
   };
 
   const attack = (x = 0, y = 0) => {

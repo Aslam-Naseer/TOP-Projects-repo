@@ -57,6 +57,10 @@ h1 {
   background-color: #fff3;
 }
 
+.ship {
+  background-color: white;
+}
+
 .hit {
   background-color: red;
 }

@@ -1,4 +1,4 @@
-import pipe from "./pipe";
+import { play } from "./pipe";
 
 const player = document.querySelector("#player");
 const bot = document.querySelector("#bot");
@@ -24,7 +24,7 @@ const setBoard = () => {
       botCell.dataset.x = i;
       botCell.dataset.y = j;
 
-      botCell.addEventListener("click", pipe.play);
+      botCell.addEventListener("click", play);
 
       playerRow.appendChild(playerCell);
       botRow.appendChild(botCell);
@@ -61,4 +61,14 @@ const isAttacked = (x, y, isPlayer) => {
   return cell.classList.contains("miss") || cell.classList.contains("hit");
 };
 
-export default { setBoard, attack, isAttacked };
+const placeFriendly = (arr) => {
+  if (Array.isArray(arr) === false) return null;
+  arr.forEach((cellData) => {
+    const cell = player
+      .querySelector(`[data-row='${cellData[0]}']`)
+      .querySelector(`[data-y='${cellData[1]}']`);
+    cell.classList.add("ship");
+  });
+};
+
+export default { setBoard, attack, isAttacked, placeFriendly };
