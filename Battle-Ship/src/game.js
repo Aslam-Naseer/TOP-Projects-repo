@@ -1,5 +1,5 @@
-import { player, bot } from "../src/player";
-import board from "../src/gameboard";
+import { player, bot } from "./player";
+import board from "./gameboard";
 import domStuff from "./domStuff";
 
 const playerGrid = document.querySelector("#player");

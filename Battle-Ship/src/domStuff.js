@@ -1,4 +1,4 @@
-import { play } from "./pipe";
+import { play } from "./game";
 
 const player = document.querySelector("#player");
 const bot = document.querySelector("#bot");

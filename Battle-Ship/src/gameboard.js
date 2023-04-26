@@ -40,7 +40,7 @@ function gameboard(MAX = 10) {
     return cells;
   };
 
-  const attack = (x = 0, y = 0) => {
+  const attack = (x, y) => {
     if (typeof grid[x][y] !== "number") {
       grid[x][y].hit();
       grid[x][y] = 1;

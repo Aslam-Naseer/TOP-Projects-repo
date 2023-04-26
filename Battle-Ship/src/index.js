@@ -1,5 +1,5 @@
 import domMethods from "./domStuff";
-import { play, obj, placeShip, randomPlace } from "./pipe";
+import { play, obj, placeShip, randomPlace } from "./game";
 import { player } from "./player";
 import ship from "./shipFactory";
 
