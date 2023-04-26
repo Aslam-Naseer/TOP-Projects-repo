@@ -1,4 +1,4 @@
-import { play, newGame } from "./game";
+import { play, newGame, botFindCell } from "./game";
 
 const player = document.querySelector("#player");
 const bot = document.querySelector("#bot");
@@ -67,16 +67,65 @@ const isAttacked = (x, y, isPlayer) => {
   return cell.classList.contains("miss") || cell.classList.contains("hit");
 };
 
-const placeFriendly = (arr) => {
+const placeShipOnMap = (arr, classname) => {
+  const board = classname === "ship" ? player : bot;
+
   if (Array.isArray(arr) === false) return null;
   arr.forEach((cellData) => {
-    const cell = player
+    const cell = board
       .querySelector(`[data-row='${cellData[0]}']`)
       .querySelector(`[data-y='${cellData[1]}']`);
-    cell.classList.add("ship");
+    cell.classList.add(classname);
   });
+};
+
+const botShipCells = () => {
+  let val = 0;
+  const rows = bot.querySelectorAll(".row");
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+      // console.log(cell.classList.contains("opp-ship"));
+      if (cell.classList.contains("opp-ship")) val += 1;
+    });
+  });
+
+  // console.log(val);
+
+  return val;
+};
+
+const resetOpponent = () => {
+  bot.textContent = "";
+  for (let i = 0; i < 10; i++) {
+    const botRow = document.createElement("div");
+    botRow.classList.add("row");
+    botRow.dataset.row = i;
+
+    for (let j = 0; j < 10; j++) {
+      const botCell = document.createElement("div");
+      botCell.classList.add("attacking-cell");
+      botCell.classList.add("cell");
+      botCell.dataset.x = i;
+      botCell.dataset.y = j;
+
+      botCell.addEventListener("click", play);
+
+      botRow.appendChild(botCell);
+    }
+    bot.appendChild(botRow);
+  }
 };
 
 document.querySelector(".new-game").addEventListener("click", newGame);
 
-export default { setBoard, attack, isAttacked, placeFriendly, clearBoards };
+export default {
+  setBoard,
+  attack,
+  isAttacked,
+  placeShipOnMap,
+  clearBoards,
+  botShipCells,
+  resetOpponent,
+};

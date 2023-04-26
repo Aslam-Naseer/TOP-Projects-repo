@@ -12,6 +12,12 @@ const botBoard = board();
 const p = player(playerBoard, botBoard);
 const b = bot(botBoard, playerBoard);
 
+const sumArray = (arr) => {
+  return arr.reduce((prev, curr) => (prev += curr), 0);
+};
+
+const botFindCell = (x, y) => botBoard.grid[x][y];
+
 const botAttack = () => {
   let attackObj = null;
   while (attackObj === null) attackObj = b.attack();
@@ -42,38 +48,46 @@ const play = (e) => {
 const placeShip = (ship, x, y, vert) => {
   const cellsPlaced = p.placeShip(ship, x, y, vert);
   if (Array.isArray(cellsPlaced) === false) throw new Error("Cant place ship");
-  domStuff.placeFriendly(cellsPlaced);
+  domStuff.placeShipOnMap(cellsPlaced, "ship");
 };
 
 const randomPlace = (ship) => {
-  const cellPlaced = b.placeShip(ship);
-  console.log(cellPlaced);
+  const cellsPlaced = b.placeShip(ship);
+  if (Array.isArray(cellsPlaced) === false) throw new Error("Cant place ship");
+  domStuff.placeShipOnMap(cellsPlaced, "opp-ship");
+  console.log(cellsPlaced);
 };
 
-const clear = () => {
-  domStuff.clearBoards();
+const playerAllPlace = () => {
   p.reset();
-  b.reset();
-};
-
-const placeAlShips = () => {
-  randomPlace(ship(2));
-  randomPlace(ship(4));
-  randomPlace(ship(5));
-  randomPlace(ship(4));
-  randomPlace(ship(2));
-
   placeShip(ship(2), 2, 3, true);
   placeShip(ship(5), 4, 4);
   placeShip(ship(3), 7, 3);
 };
 
+const randomAllPlace = (arr) => {
+  if (Array.isArray(arr) === false)
+    throw new Error("No array showing ship length for Opponent");
+
+  const sum = sumArray(arr);
+  let res = 0;
+
+  while (res !== sum) {
+    b.reset();
+    domStuff.resetOpponent();
+    arr.forEach((x) => randomPlace(ship(x)));
+    res = domStuff.botShipCells();
+    console.log(res);
+  }
+};
+
 const newGame = () => {
-  clear();
+  domStuff.clearBoards();
   domStuff.setBoard();
-  placeAlShips();
+  playerAllPlace();
+  randomAllPlace([2, 2, 3, 4, 5]);
 };
 
 const obj = { p, b, playerBoard, botBoard };
 
-export { play, obj, placeShip, randomPlace, clear, newGame };
+export { play, obj, placeShip, randomPlace, newGame, botFindCell };

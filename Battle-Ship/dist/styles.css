@@ -86,3 +86,7 @@ h1 {
 .new-game:hover {
   background-color: #333;
 }
+
+.opp-ship {
+  background-color: turquoise;
+}
