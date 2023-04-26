@@ -1,8 +1,11 @@
 function gameboard(MAX = 10) {
-  const grid = [];
-  const ships = [];
+  let grid = [];
+  let ships = [];
 
-  (() => {
+  const resetBoard = () => {
+    grid = [];
+    ships = [];
+
     for (let i = 0; i < MAX; i++) {
       const row = [];
       for (let j = 0; j < MAX; j++) {
@@ -10,7 +13,9 @@ function gameboard(MAX = 10) {
       }
       grid.push(row);
     }
-  })();
+  };
+
+  resetBoard();
 
   const isFreeSpace = (x, y, l, vert) => {
     if (!vert) {
@@ -55,7 +60,7 @@ function gameboard(MAX = 10) {
     return ships.reduce((prev, curr) => prev && curr.isSunk(), true);
   };
 
-  return { grid, placeShip, attack, allSunk };
+  return { grid, placeShip, attack, allSunk, resetBoard };
 }
 
 export default gameboard;

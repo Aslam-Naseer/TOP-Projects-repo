@@ -38,6 +38,11 @@ const setBoard = () => {
 
 setBoard();
 
+const clearBoards = () => {
+  player.textContent = "";
+  bot.textContent = "";
+};
+
 const attack = (isPlayer, x, y, isHit) => {
   const board = isPlayer ? bot : player;
   const cell = board
@@ -72,4 +77,4 @@ const placeFriendly = (arr) => {
   });
 };
 
-export default { setBoard, attack, isAttacked, placeFriendly };
+export default { setBoard, attack, isAttacked, placeFriendly, clearBoards };

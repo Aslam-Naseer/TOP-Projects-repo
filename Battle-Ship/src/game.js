@@ -42,6 +42,11 @@ const randomPlace = (ship) => {
   const cellPlaced = b.placeShip(ship);
   console.log(cellPlaced);
 };
+
+const clearGame = () => {
+  domStuff.clearBoards();
+};
+
 const obj = { p, b, playerBoard, botBoard };
 
 export { play, obj, placeShip, randomPlace };

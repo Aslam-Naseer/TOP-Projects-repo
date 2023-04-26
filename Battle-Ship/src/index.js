@@ -8,8 +8,12 @@ placeShip(ship(5), 4, 4);
 placeShip(ship(3), 7, 3);
 
 randomPlace(ship(2));
+randomPlace(ship(4));
 randomPlace(ship(5));
+randomPlace(ship(4));
 randomPlace(ship(2));
+
+domMethods.clearBoards();
 
 // console.log(obj.playerBoard.grid);
 // console.log(obj.botBoard.grid);

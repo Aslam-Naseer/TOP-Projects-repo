@@ -9,11 +9,13 @@ function player(board, opponent) {
 
   const finished = () => board.allSunk();
 
-  return { attack, placeShip, finished };
+  const reset = () => board.resetBoard();
+
+  return { attack, placeShip, finished, reset };
 }
 
 function bot(board, opponent) {
-  const filled = [];
+  let filled = [];
 
   const isInFilled = (x, y) => {
     return filled.findIndex((pair) => pair[0] === x && pair[1] === y);
@@ -57,6 +59,11 @@ function bot(board, opponent) {
     }
 
     return cellPlaced;
+  };
+
+  const reset = () => {
+    board.resetBoard();
+    filled = [];
   };
 
   const finished = () => board.allSunk();
