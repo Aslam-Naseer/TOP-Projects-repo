@@ -68,7 +68,7 @@ function bot(board, opponent) {
 
   const finished = () => board.allSunk();
 
-  return { attack, filled, placeShip, finished };
+  return { attack, filled, placeShip, finished, reset };
 }
 
 export { player, bot };

@@ -1,6 +1,7 @@
 import { player, bot } from "./player";
 import board from "./gameboard";
 import domStuff from "./domStuff";
+import ship from "./shipFactory";
 
 const playerGrid = document.querySelector("#player");
 const botGrid = document.querySelector("#bot");
@@ -27,9 +28,15 @@ const playerAttack = (e) => {
 const play = (e) => {
   let x;
   x = playerAttack(e);
-  if (x && b.finished()) console.log("P won");
+  if (x && b.finished()) {
+    console.log("P won");
+    newGame();
+  }
   x = botAttack();
-  if (x && p.finished()) console.log("B won");
+  if (x && p.finished()) {
+    console.log("B won");
+    newGame();
+  }
 };
 
 const placeShip = (ship, x, y, vert) => {
@@ -43,10 +50,30 @@ const randomPlace = (ship) => {
   console.log(cellPlaced);
 };
 
-const clearGame = () => {
+const clear = () => {
   domStuff.clearBoards();
+  p.reset();
+  b.reset();
+};
+
+const placeAlShips = () => {
+  randomPlace(ship(2));
+  randomPlace(ship(4));
+  randomPlace(ship(5));
+  randomPlace(ship(4));
+  randomPlace(ship(2));
+
+  placeShip(ship(2), 2, 3, true);
+  placeShip(ship(5), 4, 4);
+  placeShip(ship(3), 7, 3);
+};
+
+const newGame = () => {
+  clear();
+  domStuff.setBoard();
+  placeAlShips();
 };
 
 const obj = { p, b, playerBoard, botBoard };
 
-export { play, obj, placeShip, randomPlace };
+export { play, obj, placeShip, randomPlace, clear, newGame };
