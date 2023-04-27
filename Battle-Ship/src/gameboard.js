@@ -2,6 +2,20 @@ function gameboard(MAX = 10) {
   let grid = [];
   let ships = [];
 
+  const resetBoard = () => {
+    grid = [];
+    ships = [];
+
+    for (let i = 0; i < MAX; i++) {
+      const row = [];
+      for (let j = 0; j < MAX; j++) {
+        row.push(0);
+      }
+      grid.push(row);
+    }
+  };
+  resetBoard();
+
   const randomBool = () => {
     const val = Math.floor(Math.random() * 2);
     return val === 0 ? false : true;
@@ -14,19 +28,6 @@ function gameboard(MAX = 10) {
       for (let i = x; i < x + l; i++) if (grid[x][i] !== 0) return false;
     }
     return true;
-  };
-
-  const resetBoard = () => {
-    grid = [];
-    ships = [];
-
-    for (let i = 0; i < MAX; i++) {
-      const row = [];
-      for (let j = 0; j < MAX; j++) {
-        row.push(0);
-      }
-      grid.push(row);
-    }
   };
 
   const placeShip = (ship, x, y, vert = false) => {

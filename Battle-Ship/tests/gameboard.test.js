@@ -2,11 +2,13 @@ import gameboard from "../src/gameboard";
 import ship from "../src/shipFactory";
 
 test("Create a gameboard", () => {
-  expect(gameboard(3).grid).toEqual([
+  const board = gameboard(3);
+  expect(board.grid).toEqual([
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0],
   ]);
+  // expect(board.grid).toEqual([]);
 });
 
 test("Place ships", () => {

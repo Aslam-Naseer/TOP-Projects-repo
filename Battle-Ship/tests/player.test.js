@@ -4,6 +4,7 @@ import ship from "../src/shipFactory";
 
 const b1 = board();
 const b2 = board();
+
 b1.placeShip(ship(2), 2, 4, true);
 b2.placeShip(ship(3), 5, 0);
 const p1 = player(b1, b2);
