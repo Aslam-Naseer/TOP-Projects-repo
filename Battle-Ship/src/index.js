@@ -4,6 +4,3 @@ import { player } from "./player";
 import ship from "./shipFactory";
 
 newGame();
-
-// console.log(obj.playerBoard.grid);
-// console.log(obj.botBoard.grid);

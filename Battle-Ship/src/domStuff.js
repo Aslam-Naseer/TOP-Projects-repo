@@ -93,7 +93,6 @@ const shipCells = (userText) => {
   rows.forEach((row) => {
     const cells = row.querySelectorAll(".cell");
     cells.forEach((cell) => {
-      // console.log(cell.classList.contains("opp-ship"));
       if (
         cell.classList.contains("opp-ship") ||
         cell.classList.contains("ship")
@@ -102,16 +101,11 @@ const shipCells = (userText) => {
     });
   });
 
-  // console.log(val);
-
   return val;
 };
 
 const resetBoard = (toChange) => {
   const board = toChange === "player" ? player : bot;
-
-  console.log(toChange);
-  console.log(board);
 
   board.textContent = "";
   for (let i = 0; i < 10; i++) {

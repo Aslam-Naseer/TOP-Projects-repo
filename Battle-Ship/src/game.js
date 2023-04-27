@@ -55,7 +55,6 @@ const randomPlace = (user, ship) => {
 
   if (Array.isArray(cellsPlaced) === false) throw new Error("Cant place ship");
   domStuff.placeShipOnMap(cellsPlaced, userText);
-  console.log(cellsPlaced);
 };
 
 const playerAllPlace = () => {
@@ -77,7 +76,6 @@ const randomAllPlace = (user, arr) => {
     domStuff.resetBoard(userText);
     arr.forEach((x) => randomPlace(user, ship(x)));
     res = domStuff.shipCells(userText);
-    console.log(res);
   }
 };
 
