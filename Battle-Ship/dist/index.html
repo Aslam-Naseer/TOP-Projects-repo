@@ -9,11 +9,19 @@
     <script defer src="main.js"></script>
   </head>
   <body>
-    <h1>BATTLESHIP</h1>
-    <div class="grids">
-      <div class="board" id="player"></div>
-      <div class="board" id="bot"></div>
+    <div class="contents">
+      <h1>BATTLESHIP</h1>
+      <div class="grids">
+        <div class="board" id="player"></div>
+        <div class="board" id="bot"></div>
+      </div>
+      <button class="new-game">New Game</button>
     </div>
-    <button class="new-game">New Game</button>
+    <div class="popups">
+      <div class="winner-popup">
+        <h2 id="winner"></h2>
+        <button class="new-game">New Game</button>
+      </div>
+    </div>
   </body>
 </html>
