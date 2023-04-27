@@ -35,11 +35,11 @@ const play = (e) => {
   let x;
   x = playerAttack(e);
   if (x && b.finished()) {
-    domStuff.showWinner("Player won");
+    domStuff.showWinner("You won");
   }
   x = botAttack();
   if (x && p.finished()) {
-    domStuff.showWinner("Computer won");
+    domStuff.showWinner("You lost");
   }
 };
 
