@@ -3,9 +3,6 @@ import board from "./gameboard";
 import domStuff from "./domStuff";
 import ship from "./shipFactory";
 
-const playerGrid = document.querySelector("#player");
-const botGrid = document.querySelector("#bot");
-
 const playerBoard = board();
 const botBoard = board();
 
@@ -57,13 +54,6 @@ const randomPlace = (user, ship) => {
   domStuff.placeShipOnMap(cellsPlaced, userText);
 };
 
-const playerAllPlace = () => {
-  p.reset();
-  placeShip(ship(2), 2, 3, true);
-  placeShip(ship(5), 4, 4);
-  placeShip(ship(3), 7, 3);
-};
-
 const randomAllPlace = (user, arr) => {
   if (Array.isArray(arr) === false) throw new Error("No array");
 
@@ -81,7 +71,6 @@ const randomAllPlace = (user, arr) => {
 
 const newGame = () => {
   domStuff.clearBoards();
-  domStuff.setBoard();
   randomAllPlace(p, [2, 3, 3, 4, 5]);
   randomAllPlace(b, [2, 3, 3, 4, 5]);
 };
