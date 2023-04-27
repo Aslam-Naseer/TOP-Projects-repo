@@ -38,13 +38,13 @@ const setBoard = () => {
 
 setBoard();
 
-const clearPopus = () => {
+const clearPopups = () => {
   const popups = document.querySelector(".popups");
   popups.classList.remove("active-popup");
 };
 
 const clearBoards = () => {
-  clearPopus();
+  clearPopups();
   player.textContent = "";
   bot.textContent = "";
 };
