@@ -1,4 +1,4 @@
-import { play, newGame, botFindCell } from "./game";
+import { play, newGame } from "./game";
 
 const player = document.querySelector("#player");
 const bot = document.querySelector("#bot");
