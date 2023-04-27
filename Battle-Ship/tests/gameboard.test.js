@@ -18,9 +18,9 @@ test("Place ships", () => {
 test("cannot place multiple ships above one", () => {
   const board = gameboard();
   board.placeShip(ship(2), 6, 6);
-  expect(() => board.placeShip(ship(1), 6, 6)).toThrow();
-  expect(() => board.placeShip(ship(2), 6, 7)).toThrow();
-  expect(() => board.placeShip(ship(5), 6, 4)).toThrow();
+  expect(board.placeShip(ship(1), 6, 6)).toBe(null);
+  expect(board.placeShip(ship(2), 6, 7)).toBe(null);
+  expect(board.placeShip(ship(5), 6, 4)).toBe(null);
 });
 
 test("place multiple block ships", () => {

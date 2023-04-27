@@ -15,7 +15,7 @@ test("player can play", () => {
 });
 
 test("Bot attacks randomly", () => {
-  for (let i = 0; i < 144; i++) p2.attack();
-  expect(() => p2.attack()).toThrow();
-  expect(p2.filled.length).toBe(144);
+  for (let i = 0; i < 101; i++) p2.attack();
+  expect(p2.attack()).toBe(null);
+  expect(p2.filled.length).toBe(100);
 });
