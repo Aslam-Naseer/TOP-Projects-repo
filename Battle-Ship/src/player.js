@@ -7,11 +7,13 @@ function player(board, opponent) {
     return board.placeShip(ship, x, y, vert);
   };
 
+  const placeShipRandom = (ship) => board.placeRandom(ship);
+
   const finished = () => board.allSunk();
 
   const reset = () => board.resetBoard();
 
-  return { attack, placeShip, finished, reset };
+  return { attack, placeShip, finished, reset, placeShipRandom };
 }
 
 function bot(board, opponent) {
@@ -43,7 +45,7 @@ function bot(board, opponent) {
     return { x, y, res };
   };
 
-  const placeShip = (ship) => board.placeRandom(ship);
+  const placeShipRandom = (ship) => board.placeRandom(ship);
 
   const reset = () => {
     board.resetBoard();
@@ -52,7 +54,7 @@ function bot(board, opponent) {
 
   const finished = () => board.allSunk();
 
-  return { attack, filled, placeShip, finished, reset };
+  return { attack, filled, placeShipRandom, finished, reset };
 }
 
 export { player, bot };

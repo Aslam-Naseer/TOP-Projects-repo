@@ -85,15 +85,20 @@ const placeShipOnMap = (arr, classname) => {
   });
 };
 
-const botShipCells = () => {
+const shipCells = (userText) => {
   let val = 0;
-  const rows = bot.querySelectorAll(".row");
+  const board = userText === "player" ? player : bot;
+  const rows = board.querySelectorAll(".row");
 
   rows.forEach((row) => {
     const cells = row.querySelectorAll(".cell");
     cells.forEach((cell) => {
       // console.log(cell.classList.contains("opp-ship"));
-      if (cell.classList.contains("opp-ship")) val += 1;
+      if (
+        cell.classList.contains("opp-ship") ||
+        cell.classList.contains("ship")
+      )
+        val += 1;
     });
   });
 
@@ -102,25 +107,31 @@ const botShipCells = () => {
   return val;
 };
 
-const resetOpponent = () => {
-  bot.textContent = "";
+const resetBoard = (toChange) => {
+  const board = toChange === "player" ? player : bot;
+
+  console.log(toChange);
+  console.log(board);
+
+  board.textContent = "";
   for (let i = 0; i < 10; i++) {
-    const botRow = document.createElement("div");
-    botRow.classList.add("row");
-    botRow.dataset.row = i;
+    const row = document.createElement("div");
+    row.classList.add("row");
+    row.dataset.row = i;
 
     for (let j = 0; j < 10; j++) {
-      const botCell = document.createElement("div");
-      botCell.classList.add("attacking-cell");
-      botCell.classList.add("cell");
-      botCell.dataset.x = i;
-      botCell.dataset.y = j;
+      const cell = document.createElement("div");
+      cell.classList.add("cell");
+      cell.dataset.x = i;
+      cell.dataset.y = j;
+      if (board === bot) {
+        cell.classList.add("attacking-cell");
+        cell.addEventListener("click", play);
+      }
 
-      botCell.addEventListener("click", play);
-
-      botRow.appendChild(botCell);
+      row.appendChild(cell);
     }
-    bot.appendChild(botRow);
+    board.appendChild(row);
   }
 };
 
@@ -142,7 +153,7 @@ export default {
   isAttacked,
   placeShipOnMap,
   clearBoards,
-  botShipCells,
-  resetOpponent,
+  shipCells,
+  resetBoard,
   showWinner,
 };

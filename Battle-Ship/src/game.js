@@ -49,10 +49,12 @@ const placeShip = (ship, x, y, vert) => {
   domStuff.placeShipOnMap(cellsPlaced, "ship");
 };
 
-const randomPlace = (ship) => {
-  const cellsPlaced = b.placeShip(ship);
+const randomPlace = (user, ship) => {
+  const cellsPlaced = user.placeShipRandom(ship);
+  const userText = user === p ? "ship" : "opp-ship";
+
   if (Array.isArray(cellsPlaced) === false) throw new Error("Cant place ship");
-  domStuff.placeShipOnMap(cellsPlaced, "opp-ship");
+  domStuff.placeShipOnMap(cellsPlaced, userText);
   console.log(cellsPlaced);
 };
 
@@ -63,18 +65,18 @@ const playerAllPlace = () => {
   placeShip(ship(3), 7, 3);
 };
 
-const randomAllPlace = (arr) => {
-  if (Array.isArray(arr) === false)
-    throw new Error("No array showing ship length for Opponent");
+const randomAllPlace = (user, arr) => {
+  if (Array.isArray(arr) === false) throw new Error("No array");
 
   const sum = sumArray(arr);
   let res = 0;
+  const userText = user === p ? "player" : "bot";
 
   while (res !== sum) {
-    b.reset();
-    domStuff.resetOpponent();
-    arr.forEach((x) => randomPlace(ship(x)));
-    res = domStuff.botShipCells();
+    user.reset();
+    domStuff.resetBoard(userText);
+    arr.forEach((x) => randomPlace(user, ship(x)));
+    res = domStuff.shipCells(userText);
     console.log(res);
   }
 };
@@ -82,8 +84,8 @@ const randomAllPlace = (arr) => {
 const newGame = () => {
   domStuff.clearBoards();
   domStuff.setBoard();
-  playerAllPlace();
-  randomAllPlace([2, 2, 3, 4, 5]);
+  randomAllPlace(p, [2, 3, 3, 4, 5]);
+  randomAllPlace(b, [2, 3, 3, 4, 5]);
 };
 
 const obj = { p, b, playerBoard, botBoard };
