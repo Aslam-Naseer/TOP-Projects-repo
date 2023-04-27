@@ -38,7 +38,13 @@ const setBoard = () => {
 
 setBoard();
 
+const clearPopus = () => {
+  const popups = document.querySelector(".popups");
+  popups.classList.remove("active-popup");
+};
+
 const clearBoards = () => {
+  clearPopus();
   player.textContent = "";
   bot.textContent = "";
 };
@@ -118,7 +124,17 @@ const resetOpponent = () => {
   }
 };
 
-document.querySelector(".new-game").addEventListener("click", newGame);
+const showWinner = (text = "") => {
+  const popups = document.querySelector(".popups");
+  const winnerTitle = popups.querySelector("#winner");
+
+  winnerTitle.textContent = text;
+  popups.classList.add("active-popup");
+};
+
+document
+  .querySelectorAll(".new-game")
+  .forEach((node) => node.addEventListener("click", newGame));
 
 export default {
   setBoard,
@@ -128,4 +144,5 @@ export default {
   clearBoards,
   botShipCells,
   resetOpponent,
+  showWinner,
 };
