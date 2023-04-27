@@ -9,11 +9,9 @@ const botBoard = board();
 const p = player(playerBoard, botBoard);
 const b = bot(botBoard, playerBoard);
 
-const sumArray = (arr) => {
-  return arr.reduce((prev, curr) => (prev += curr), 0);
-};
+const sumArray = (arr) => arr.reduce((prev, curr) => (prev += curr), 0);
 
-const botFindCell = (x, y) => botBoard.grid[x][y];
+// const botFindCell = (x, y) => botBoard.grid[x][y];
 
 const botAttack = () => {
   let attackObj = null;
@@ -77,4 +75,4 @@ const newGame = () => {
 
 const obj = { p, b, playerBoard, botBoard };
 
-export { play, obj, placeShip, randomPlace, newGame, botFindCell };
+export { obj, play, placeShip, randomPlace, newGame };

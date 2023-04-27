@@ -1,11 +1,7 @@
 function player(board, opponent) {
-  const attack = (x, y) => {
-    return opponent.attack(x, y);
-  };
+  const attack = (x, y) => opponent.attack(x, y);
 
-  const placeShip = (ship, x, y, vert) => {
-    return board.placeShip(ship, x, y, vert);
-  };
+  const placeShip = (ship, x, y, vert) => board.placeShip(ship, x, y, vert);
 
   const placeShipRandom = (ship) => board.placeRandom(ship);
 
@@ -19,9 +15,8 @@ function player(board, opponent) {
 function bot(board, opponent) {
   let filled = [];
 
-  const isInFilled = (x, y) => {
-    return filled.findIndex((pair) => pair[0] === x && pair[1] === y);
-  };
+  const isInFilled = (x, y) =>
+    filled.findIndex((pair) => pair[0] === x && pair[1] === y);
 
   const isFull = () => filled.length > 99;
 
@@ -54,7 +49,7 @@ function bot(board, opponent) {
 
   const finished = () => board.allSunk();
 
-  return { attack, filled, placeShipRandom, finished, reset };
+  return { filled, attack, placeShipRandom, finished, reset };
 }
 
 export { player, bot };

@@ -3,7 +3,7 @@ function shipFactory(l) {
   let hitCount = 0;
   const isSunk = () => hitCount >= length;
   const hit = () => (hitCount += 1);
-  return { isSunk, hit, length };
+  return { length, isSunk, hit };
 }
 
 export default shipFactory;

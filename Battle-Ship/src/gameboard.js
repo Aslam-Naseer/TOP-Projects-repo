@@ -2,6 +2,20 @@ function gameboard(MAX = 10) {
   let grid = [];
   let ships = [];
 
+  const randomBool = () => {
+    const val = Math.floor(Math.random() * 2);
+    return val === 0 ? false : true;
+  };
+
+  const isFreeSpace = (x, y, l, vert) => {
+    if (!vert) {
+      for (let i = y; i < y + l; i++) if (grid[x][i] !== 0) return false;
+    } else {
+      for (let i = x; i < x + l; i++) if (grid[x][i] !== 0) return false;
+    }
+    return true;
+  };
+
   const resetBoard = () => {
     grid = [];
     ships = [];
@@ -13,17 +27,6 @@ function gameboard(MAX = 10) {
       }
       grid.push(row);
     }
-  };
-
-  resetBoard();
-
-  const isFreeSpace = (x, y, l, vert) => {
-    if (!vert) {
-      for (let i = y; i < y + l; i++) if (grid[x][i] !== 0) return false;
-    } else {
-      for (let i = x; i < x + l; i++) if (grid[x][i] !== 0) return false;
-    }
-    return true;
   };
 
   const placeShip = (ship, x, y, vert = false) => {
@@ -56,14 +59,8 @@ function gameboard(MAX = 10) {
     }
   };
 
-  const allSunk = () => {
-    return ships.reduce((prev, curr) => prev && curr.isSunk(), true);
-  };
-
-  const randomBool = () => {
-    const val = Math.floor(Math.random() * 2);
-    return val === 0 ? false : true;
-  };
+  const allSunk = () =>
+    ships.reduce((prev, curr) => prev && curr.isSunk(), true);
 
   const placeRandom = (ship) => {
     let cells = null;

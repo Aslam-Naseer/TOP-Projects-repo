@@ -8,12 +8,6 @@ const clearPopups = () => {
   popups.classList.remove("active-popup");
 };
 
-const clearBoards = () => {
-  clearPopups();
-  player.textContent = "";
-  bot.textContent = "";
-};
-
 const attack = (isPlayer, x, y, isHit) => {
   const board = isPlayer ? bot : player;
   const cell = board
@@ -48,6 +42,12 @@ const placeShipOnMap = (arr, classname) => {
       .querySelector(`[data-y='${cellData[1]}']`);
     cell.classList.add(classname);
   });
+};
+
+const clearBoards = () => {
+  clearPopups();
+  player.textContent = "";
+  bot.textContent = "";
 };
 
 const shipCells = (userText) => {
