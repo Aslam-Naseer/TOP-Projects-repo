@@ -60,7 +60,25 @@ function gameboard(MAX = 10) {
     return ships.reduce((prev, curr) => prev && curr.isSunk(), true);
   };
 
-  return { grid, placeShip, attack, allSunk, resetBoard };
+  const randomBool = () => {
+    const val = Math.floor(Math.random() * 2);
+    return val === 0 ? false : true;
+  };
+
+  const placeRandom = (ship) => {
+    let cells = null;
+    while (cells === null) {
+      const x = Math.floor(Math.random() * 10);
+      const y = Math.floor(Math.random() * 10);
+      const vert = randomBool();
+
+      cells = placeShip(ship, x, y, vert);
+    }
+
+    return cells;
+  };
+
+  return { grid, placeShip, attack, allSunk, resetBoard, placeRandom };
 }
 
 export default gameboard;

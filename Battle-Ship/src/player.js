@@ -43,23 +43,7 @@ function bot(board, opponent) {
     return { x, y, res };
   };
 
-  const randomBool = () => {
-    const val = Math.floor(Math.random() * 2);
-    return val === 0 ? false : true;
-  };
-
-  const placeShip = (ship) => {
-    let cellPlaced = null;
-    while (cellPlaced === null) {
-      const x = Math.floor(Math.random() * 10);
-      const y = Math.floor(Math.random() * 10);
-      const vert = randomBool();
-
-      cellPlaced = board.placeShip(ship, x, y, vert);
-    }
-
-    return cellPlaced;
-  };
+  const placeShip = (ship) => board.placeRandom(ship);
 
   const reset = () => {
     board.resetBoard();
