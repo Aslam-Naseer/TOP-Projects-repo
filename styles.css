@@ -20,6 +20,10 @@ header {
   padding: 20px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header-top,
 .header-bot {
   display: flex;
@@ -78,7 +82,10 @@ button {
 
   display: flex;
   gap: 20px;
-  justify-content: center;
+  /* justify-content: center; */
+
+  padding-bottom: 25px;
+  overflow: auto;
 }
 
 .card {
@@ -94,6 +101,13 @@ button {
   border: 5px solid var(--blues);
   border-radius: 12px;
   margin: 15px;
+  display: grid;
+  place-items: center;
+}
+
+.main-logo-image {
+  width: 7vw;
+  aspect-ratio: 1;
 }
 
 .quote {
