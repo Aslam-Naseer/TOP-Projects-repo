@@ -3,7 +3,6 @@
 * {
   padding: 0;
   margin: 0;
-  color: white;
   font-family: 'Open Sans', sans-serif;
 
 }
@@ -14,7 +13,7 @@ body {
 }
 
 .contents {
-  background-color: #121212;
+  background-color: white;
   display: grid;
   grid-template-rows: 180px 1fr;
   place-items: center;
@@ -60,11 +59,11 @@ h1 {
 .attacking-cell:hover {
 
   cursor: pointer;
-  background-color: #fff2;
+  background-color: #777;
 }
 
 .ship {
-  background-color: rgba(255, 255, 255, 0.842);
+  background-color: #aaa9;
 }
 
 .hit {
@@ -79,9 +78,9 @@ h1 {
 
 .new-game {
   margin: 50px;
-  background-color: #222;
+  background-color: whitesmoke;
   cursor: pointer;
-  border: 2px solid white;
+  border: 2px solid black;
   border-radius: 5px;
   font-size: 20px;
   padding: 10px 35px;
@@ -89,7 +88,7 @@ h1 {
 }
 
 .new-game:hover {
-  background-color: #333;
+  background-color: #ddd;
 }
 
 .popups {
@@ -110,11 +109,11 @@ h1 {
 }
 
 .winner-popup {
-  border: 1px solid white;
+  border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 90px;
-  background-color: #121212;
+  background-color: whitesmoke;
   border-radius: 6px;
 }
