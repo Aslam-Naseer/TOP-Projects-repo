@@ -22,6 +22,7 @@ header {
 
 a {
   text-decoration: none;
+  color: white;
 }
 
 .header-top,
@@ -84,12 +85,12 @@ button {
   gap: 20px;
   /* justify-content: center; */
 
-  padding-bottom: 25px;
+  padding-bottom: 55px;
   overflow: auto;
 }
 
 .card {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #555;
   flex: 0 1 200px;
@@ -160,8 +161,26 @@ button {
 }
 
 footer {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   color: white;
   background-color: var(--hero-bgr);
   padding: 50px 0;
+}
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: #aaa;
+}
+
+.cards::-webkit-scrollbar-thumb:hover {
+  background: #777;
 }
