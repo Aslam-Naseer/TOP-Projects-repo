@@ -97,8 +97,9 @@ button {
   display: flex;
   gap: 20px;
 
-  padding-bottom: 55px;
-  overflow: auto;
+  /* padding-bottom: 55px; */
+  overflow: hidden;
+
 }
 
 .card {
@@ -110,6 +111,7 @@ button {
 
 .card>div {
   width: 10vw;
+  flex: 2;
   height: 10vw;
   border: 5px solid var(--blues);
   border-radius: 12px;
@@ -181,12 +183,12 @@ footer {
   padding: 50px 0;
 }
 
-.cards::-webkit-scrollbar {
-  height: 12px;
+/* .cards::-webkit-scrollbar {
+  height: 5px;
 }
 
 .cards::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
   border-radius: 8px;
 }
 
@@ -197,4 +199,4 @@ footer {
 
 .cards::-webkit-scrollbar-thumb:hover {
   background: #777;
-}
+} */
