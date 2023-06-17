@@ -7,8 +7,8 @@
 }
 
 body {
-  background-color: #121212;
-  color: white;
+  background-color: whitesmoke;
+  color: black;
   min-height: 100vh;
   font-family: 'Varela Round', sans-serif;
 }
@@ -16,11 +16,11 @@ body {
 .header {
   text-align: center;
   line-height: 150px;
-  border-bottom: 1px solid yellow;
+  border-bottom: 2px solid orange;
   height: 150px;
   font-size: 75px;
   font-weight: 700;
-  color: #ececec
+  color: #121212
 }
 
 .main {
@@ -40,14 +40,14 @@ body {
   height: 360px;
   width: 360px;
   margin: 25px;
-  border: 2px solid whitesmoke;
+  border: 2px solid #121212;
 
   display: grid;
   grid-template: repeat(3, 1fr)/repeat(3, 1fr);
 }
 
 .game-tile {
-  border: 1px solid white;
+  border: 1px solid #121212;
   display: flex;
   justify-content: center;
   align-items: center;
